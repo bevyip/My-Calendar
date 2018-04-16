@@ -7,7 +7,8 @@ const app = {
 
     addTask(ev) {
         ev.preventDefault()
-        console.log('submitted!')
+        const taskName = ev.target.taskName.value
+        console.log(taskName)
     },
 }
 
