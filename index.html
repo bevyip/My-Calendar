@@ -10,7 +10,8 @@
     <body>
         <div class="row">
           <div class="medium-8 column"></div>
-            <h1><center>This is my calendar</center></h1>
+            <h1><center>My Calendar</center></h1>
+            <h2><center>To Do List:</Datag></center></h2>
             <form id="task-form">
                 <div class="input-group">
                 <center>
@@ -18,7 +19,7 @@
                   type="text"
                   class="input-group-field"
                   name="userTask"
-                  placeholder="Add a task"
+                  placeholder="New Task"
                 >
                 <button
                   class="primary button"
@@ -32,8 +33,14 @@
 
         <div class="row">
             <div class="medium-8 medium-offset-2 column">
+                
             <!-- <div class="medium-8 medium-centered column"> -->
-                <center><ul id="task-list"></ul></center>
+                <center>
+                <ol id="task-list" >
+                <input type="checkbox">
+                </ol>
+                </center>
+            
             </div>
         </div>
 
