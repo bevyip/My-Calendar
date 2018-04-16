@@ -1,5 +1,8 @@
 h1 {
-    font-size: 600%;
+    font-size: 360%;
     font-family: Brush Script MT;
-    color: mediumslateblue;
+    color: rgb(167, 23, 52);
+}
+body {
+    background-color: lightsteelblue;
 }
