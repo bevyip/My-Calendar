@@ -1,14 +1,14 @@
 const app = {
-    init(formSelector) {
+    init(taskSelector) {
         document
-          .querySelector(formSelector)
-          .addEventListener('submit', this.addFlick)
+          .querySelector(taskSelector)
+          .addEventListener('submit', this.addTask)
     },
 
-    addFlick(ev) {
+    addTask(ev) {
         ev.preventDefault()
         console.log('submitted!')
     },
 }
 
-app.init('#flickForm')
+app.init('#taskForm')
