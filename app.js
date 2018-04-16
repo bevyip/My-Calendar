@@ -32,5 +32,5 @@ const app = {
 }
 
 app.init({
-    taskSelector: '#taskForm',
+    taskSelector: '#task-form',
     listSelector: '#task-list'})
