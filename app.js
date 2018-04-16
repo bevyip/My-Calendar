@@ -1,8 +1,9 @@
 const app = {
-    init(taskSelector) {
+    init(selectors) {
         this.max = 0
+        this.list = document.querySelector(selectors.listSelector)
         document
-          .querySelector(taskSelector)
+          .querySelector(selectors.taskSelector)
           .addEventListener('submit', this.addTask.bind(this))
     },
 
@@ -15,8 +16,9 @@ const app = {
         }
 
         const listItem = this.renderListItem(task)
-        console.log(listItem)
+        //console.log(listItem)
         //console.log(task.name, task.id)
+        this.list.appendChild(listItem)
         ++ this.max
         //const userTask = ev.target.userTask.value
         //console.log(userTask)
@@ -29,4 +31,6 @@ const app = {
     },
 }
 
-app.init('#taskForm')
+app.init({
+    taskSelector: '#taskForm',
+    listSelector: '#task-list'})
