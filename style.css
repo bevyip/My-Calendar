@@ -11,6 +11,7 @@ h2 {
     color: whitesmoke
 }
 body {
-    background-color: darkslategrey;
+   /* background-color: darkslategrey; */
+   background-color: maroon;
     color: whitesmoke;
 }
