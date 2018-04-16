@@ -3,7 +3,7 @@ const app = {
         this.max = 0
         document
           .querySelector(taskSelector)
-          .addEventListener('submit', this.addTask)
+          .addEventListener('submit', this.addTask.bind(this))
     },
 
     addTask(ev) {
