@@ -13,7 +13,7 @@ const app = {
             id: this.max + 1,
             name: store.userTask.value,
         }
-        console.log(task.name, this.max)
+        console.log(task.name, task.id)
         ++ this.max
         //const userTask = ev.target.userTask.value
         //console.log(userTask)
