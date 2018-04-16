@@ -14,6 +14,7 @@ const app = {
             // stores input and assigns id
             id: this.max + 1,
             name: store.userTask.value,
+            
         }
 
         const listItem = this.renderListItem(task)

@@ -1,3 +1,16 @@
 h1 {
-    color: maroon;
+    font-size: 360%;
+    /* font-family: Brush Script MT; */
+    font-family: Impact;
+    /* color: rgb(167, 23, 52); */
+    color: whitesmoke;
+}
+h2 {
+    font-size: 200%;
+    font-family: Impact;
+    color: whitesmoke
+}
+body {
+    background-color: darkslategrey;
+    color: whitesmoke;
 }
