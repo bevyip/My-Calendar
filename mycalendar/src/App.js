@@ -11,7 +11,14 @@ class App extends Component {
             <h3>Ain't no calendar like</h3>
             <h1>My Calendar</h1>
         </header>
-        <component={Calendar}>
+        <ul className="nav-links">
+          <li>
+            <NavLink to={'/calendar'}>CALENDAR</NavLink>
+          </li>
+        </ul>
+        <Switch>
+          <Route path='/calendar' component={Calendar} />
+        </Switch>
       </div>
     );
   }
