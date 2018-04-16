@@ -16,7 +16,7 @@ const app = {
             name: store.userTask.value,
             
         }
-
+        
         const listItem = this.renderListItem(task)
         // adds the task to the list
         this.list.appendChild(listItem)
