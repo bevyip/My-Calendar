@@ -7,8 +7,13 @@ const app = {
 
     addTask(ev) {
         ev.preventDefault()
-        const userTask = ev.target.userTask.value
-        console.log(userTask)
+        const store = ev.target
+        const task = {
+            name: store.userTask.value,
+        }
+        console.log(task.name)
+        //const userTask = ev.target.userTask.value
+        //console.log(userTask)
     },
 }
 
