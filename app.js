@@ -21,7 +21,7 @@ const app = {
         this.list.appendChild(listItem)
         ++ this.max
         //reset line
-        store.userTask.value = ''
+        store.reset()
         
     },
 
