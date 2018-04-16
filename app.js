@@ -7,8 +7,8 @@ const app = {
 
     addTask(ev) {
         ev.preventDefault()
-        const taskName = ev.target.taskName.value
-        console.log(taskName)
+        const userTask = ev.target.userTask.value
+        console.log(userTask)
     },
 }
 
