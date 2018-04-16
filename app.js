@@ -13,10 +13,19 @@ const app = {
             id: this.max + 1,
             name: store.userTask.value,
         }
-        console.log(task.name, task.id)
+
+        const listItem = this.renderListItem(task)
+        console.log(listItem)
+        //console.log(task.name, task.id)
         ++ this.max
         //const userTask = ev.target.userTask.value
         //console.log(userTask)
+    },
+
+    renderListItem(task) {
+        const item = document.createElement('li')
+        item.textContent = task.name
+        return item
     },
 }
 
