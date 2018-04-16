@@ -11,17 +11,18 @@ const app = {
         ev.preventDefault()
         const store = ev.target
         const task = {
+            // stores input and assigns id
             id: this.max + 1,
             name: store.userTask.value,
         }
 
         const listItem = this.renderListItem(task)
-        //console.log(listItem)
-        //console.log(task.name, task.id)
+        // adds the task to the list
         this.list.appendChild(listItem)
         ++ this.max
-        //const userTask = ev.target.userTask.value
-        //console.log(userTask)
+        //reset line
+        store.userTask.value = ''
+        
     },
 
     renderListItem(task) {
