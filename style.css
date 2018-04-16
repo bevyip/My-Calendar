@@ -3,6 +3,10 @@ h1 {
     font-family: Brush Script MT;
     color: rgb(167, 23, 52);
 }
+h2 {
+    font-family: Brush Script MT;
+    color: crimson;
+}
 body {
     background-color: lightsteelblue;
 }
