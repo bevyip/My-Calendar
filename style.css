@@ -1,13 +1,14 @@
 h1 {
     font-size: 360%;
     font-family: Brush Script MT;
-    color: rgb(167, 23, 52);
+    /* color: rgb(167, 23, 52); */
+    color: whitesmoke;
 }
 h2 {
     font-size: 200%;
     font-family: Arial, Helvetica, sans-serif;
-    color: crimson;
+    color: whitesmoke
 }
 body {
-    background-color: lightsteelblue;
+    background-color: darkslategrey;
 }
