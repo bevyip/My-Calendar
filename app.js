@@ -18,18 +18,30 @@ const app = {
         }
         
         const listItem = this.renderListItem(task)
+        const listType = this.listItemBox(task)
         // adds the task to the list
+        //this.list.appendChild(listType)
         this.list.appendChild(listItem)
+        this.list.insertBefore(listType, listItem)
         ++ this.max
         //reset line
         store.reset()
+
         
     },
 
     renderListItem(task) {
         const item = document.createElement('li')
+        item.id = "boxID"
         item.textContent = task.name
         return item
+    },
+
+    listItemBox(task) {
+        const box = document.createElement('input');
+        box.id = "boxID"
+        box.setAttribute('type', 'checkbox');
+        return box
     },
 }
 

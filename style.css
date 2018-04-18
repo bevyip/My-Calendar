@@ -23,3 +23,7 @@ body {
 select>option[value="month"] {
     display:none;
 }
+
+boxID {
+    display: inline-block;
+}
