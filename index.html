@@ -4,6 +4,7 @@
         function validate(){
             var m = document.getElementById('selectMonth').value;
             var d = document.getElementById('selectDay').value;
+            console.log("test")
 
             if(m == "january" || m == "march" || m == "may" || m == "july" || m == "august" || m == "october" || m == "december") {
                 document.getElementById('selectDay').innerHTML = "<option>Day</option>" + 
@@ -127,7 +128,7 @@
             <h2><center>Select Date:</Datag></center></h2>
             <form id="date-form">
                     <center>
-                    <select name="Month" id="selectMonth">
+                    <select name="Month" id="selectMonth" onchange="validate()">
                         <option value="month">Month</option>
                         <option value="january">January</option>
                         <option value="february">February</option>
@@ -143,7 +144,7 @@
                         <option value="december">December</option>
                     </select>
                     <select name="Day" id="selectDay" onchange="validate()"> 
-                        <h2>DAY WORKING1?</h2>
+                        
                         <option>Day</option> 
                     <!-- <input id="selectDay" placeholder="Day" type="number" name="day" min="1" max="31" > -->
                     </select> 
@@ -182,8 +183,10 @@
                              
             <!-- <div class="medium-8 medium-centered column"> -->
                 <center>
-        
-                <ol style="list-style: none;" id="task-list" > </ol> 
+                <div class="inline">
+                    <ol style="list-style: none;" id="task-list"></ol> 
+                </div>
+                
                 
                 </center>
             </div>

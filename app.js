@@ -20,14 +20,17 @@ const app = {
         const listItem = this.renderListItem(task)
         const listType = this.listItemBox(task)
         // adds the task to the list
-        // this.list.appendChild(listItem)
+         //this.list.appendChild(listItem)
+         // this.list.appendChild(listType)
+        
        //  this.list.insertBefore(listType, listItem)
        this.list.appendChild(listType) + this.list.appendChild(listItem)
         ++ this.max
         //reset line
         store.reset()
 
-        
+        // this.list.appendTo(listItem)
+        //listType.appendTo(listItem)
     },
 
     renderListItem(task) {
