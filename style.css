@@ -13,9 +13,6 @@ h2 {
 }
 h3 {
     font-size: 150%;
-
-    font-size: 200%;
-
     font-family: Impact;
     color: whitesmoke
 }
@@ -35,9 +32,4 @@ boxID {
 }
 .checks {
     display: inline;
-    
-
-    background-color: darkslategrey;
-    color: whitesmoke;
-
 }
