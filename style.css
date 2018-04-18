@@ -25,11 +25,7 @@ body {
 select>option[value="month"] {
     display:none;
 }
-
-boxID {
+.row {
     display: inline-block;
     width: 100%;
-}
-.checks {
-    display: inline;
 }
