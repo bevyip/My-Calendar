@@ -46,3 +46,16 @@ const app = {
 app.init({
     taskSelector: '#task-form',
     listSelector: '#task-list'})
+
+    function validate(){
+        var m = document.getElementById('selectMonth').value;
+
+    if(m == "january" || m == "march" || m == "may" || m == "july" || m == "august" || m == "october" || m == "december") {
+        //document.getElementById('selectDay').setAttribute('max', '5');
+        document.getElementById('selectDay').innerHTML = "<input id=\"selectDay\" placeholder=\"Day\" type=\"number\" name=\"day\" min=\"1\" max=\"2\">";
+    } else if(m == "april" || m == "june" || m == "september" || m == "november") {
+
+    } else if(m == "february") {
+
+    }
+}
