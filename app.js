@@ -22,9 +22,10 @@ const app = {
         // adds the task to the list
         //this.list.appendChild(listType)
         listItem.id = "boxID"
-        listType.id = "boxID"
-        this.list.appendChild(listItem).insertBefore(listType, listItem)
+         listType.id = "boxID"
+        // this.list.appendChild(listItem)
        //  this.list.insertBefore(listType, listItem)
+       this.list.appendChild(listType) + this.list.appendChild(listItem)
         ++ this.max
         //reset line
         store.reset()
