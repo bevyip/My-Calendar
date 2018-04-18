@@ -20,9 +20,6 @@ const app = {
         const listItem = this.renderListItem(task)
         const listType = this.listItemBox(task)
         // adds the task to the list
-        //this.list.appendChild(listType)
-        listItem.id = "boxID"
-         listType.id = "boxID"
         // this.list.appendChild(listItem)
        //  this.list.insertBefore(listType, listItem)
        this.list.appendChild(listType) + this.list.appendChild(listItem)
@@ -35,14 +32,12 @@ const app = {
 
     renderListItem(task) {
         const item = document.createElement('li')
-        item.id = "boxID"
         item.textContent = task.name
         return item
     },
 
     listItemBox(task) {
         const box = document.createElement('input');
-        box.id = "boxID"
         box.setAttribute('type', 'checkbox');
         return box
     },

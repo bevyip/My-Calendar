@@ -1,5 +1,26 @@
 <!DOCTYPE html>
 <head>
+    <script type="text/javascript">
+        function validate(){
+            var m = document.getElementById('selectMonth').value;
+        }
+        if(m == "january" || m == "march" || m == "may" || m == "july" || m == "august" || m == "october" || m == "december") {
+
+        } else if(m == "april" || m == "june" || m == "september" || m == "november") {
+
+        } else if(m == "february") {
+
+        }
+    </script>
+    <a href="http://jquery.com/">jQuery</a>
+    <script src="jquery.js"></script>
+    <script>
+        var select = '';
+        for (i=1; i<=31;i++) {
+            select += '<option val=' + i + '>' + i + '</option>';
+        }
+        $('#selectDay').html(select);
+    </script>
 <link href="./style.css" type="text/css" rel="stylesheet">    
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +35,7 @@
             <h2><center>Select Date:</Datag></center></h2>
             <form id="date-form">
                     <center>
-                    <select name="Month">
+                    <select name="Month" id="selectMonth">
                         <option value="month">Month</option>
                         <option value="january">January</option>
                         <option value="february">February</option>
@@ -29,11 +50,12 @@
                         <option value="november">November</option>
                         <option value="december">December</option>
                     </select>
-                    <select name="Day">
+                    <select name="Day" id="selectDay">
                         <option>Day</option>
                     </select>
-                    <select name="Year">
-                        <option>Year</option>
+                    <select name="Year" id="selectYear">
+                        <option value="year">Year</option>
+                        <option value="2018">2018</option>
                     </select>
                     </center>
                 </form>
@@ -49,6 +71,7 @@
                   name="userTask"
                   placeholder="New Task"
                 >
+
                 <button
                   class="primary button"
                   type="submit"
@@ -62,24 +85,13 @@
         <div class="row">
             <div class="medium-8 medium-offset-2 column">
 
-                <div class="checks">                
+                             
             <!-- <div class="medium-8 medium-centered column"> -->
                 <center>
         
                 <ol style="list-style: none;" id="task-list" > </ol> 
                 
                 </center>
-                </div>
-
-                
-            <!-- <div class="medium-8 medium-centered column"> -->
-                <center>
-                <ol id="task-list" >
-                <input type="checkbox">
-                </ol>
-                </center>
-            
-
             </div>
         </div>
 
