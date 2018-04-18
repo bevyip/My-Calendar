@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom'
 import Calendar from './Calendar'
+//import tempApp from './tempApp'
 import './App.css';
 
 class App extends Component {
@@ -14,10 +15,12 @@ class App extends Component {
         <ul className="nav-links">
           <li>
             <NavLink to={'/calendar'}>CALENDAR</NavLink>
+            
           </li>
         </ul>
         <Switch>
           <Route path='/calendar' component={Calendar} />
+          
         </Switch>
       </div>
     );
