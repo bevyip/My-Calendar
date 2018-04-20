@@ -5,6 +5,8 @@
             var m = document.getElementById('selectMonth').value;
             var d = document.getElementById('selectDay').value;
             console.log("test")
+            console.log(m)
+            console.log(d)
 
             if(m == "january" || m == "march" || m == "may" || m == "july" || m == "august" || m == "october" || m == "december") {
                 document.getElementById('selectDay').innerHTML = "<option>Day</option>" + 
@@ -143,11 +145,11 @@
                         <option value="november">November</option>
                         <option value="december">December</option>
                     </select>
-                    <select name="Day" id="selectDay" onchange="validate()"> 
+                   <!-- <select name="Day" id="selectDay" onchange="validate()"> 
                         
-                        <option>Day</option> 
-                    <!-- <input id="selectDay" placeholder="Day" type="number" name="day" min="1" max="31" > -->
-                    </select> 
+                        <option>Day</option> -->
+                    <input id="selectDay" placeholder="Day" type="number" name="day" min="1" max="31" >
+                    <!-- </select> -->
                     <select name="Year" id="selectYear">
                         <option value="year">Year</option>
                         <option value="2018">2018</option>
@@ -185,6 +187,7 @@
                 <center>
                 <div class="inline">
                     <ol style="list-style: none;" id="task-list"></ol> 
+                    <div class="inline2"></div>
                 </div>
                 
                 

@@ -29,8 +29,12 @@ select>option[value="month"] {
     display: inline-block;
     width: 100%;
 }
-.inline {
+.inline2 {
     display: inline;
+}
+
+.itemid {
+    display: inline-block;
 }
 
 

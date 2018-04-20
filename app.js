@@ -33,9 +33,14 @@ const app = {
         //listType.appendTo(listItem)
     },
 
-    renderListItem(task) {
+    renderListItem(task) { /*
         const item = document.createElement('li')
-        item.textContent = task.name
+        item.textContent = task.name */
+        const item = document.createElement('li') 
+        //item.setAttribute('type', 'li');
+        item.id = "itemid"
+        // item.insertBefore(listItem, listType);
+        item.textContent = task.name;
         return item
     },
 
