@@ -10,13 +10,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
             <h3>Ain't no calendar like</h3>
-            <h1>My Calendar</h1>
+            <h1>MY CALENDAR</h1>
+            <NavLink className="Link" to={'/Calendar'}>ADD AN EVENT!</NavLink>
         </header>
-        <ul className="nav-links">
-          <li>
-            <NavLink to={'/Calendar'}>CALENDAR</NavLink>  
-          </li>
-        </ul>
         {/*<button id="authorize-button" style="display: none;">Authorize</button>*/}
         {/*<button id="signout-button" style="display: none;">Sign Out</button>*/}
         <Switch>
