@@ -1,7 +1,7 @@
-# My-Calendar
+# My Calendar
 
 CS252 Lab 6 Project
-By: Beverly Yip, Khushali Upadhyaya, Pooja Kanuri
+* By: Beverly Yip, Khushali Upadhyaya, Pooja Kanuri
 
 ## Project Description
 
