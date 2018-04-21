@@ -50,6 +50,7 @@
           immediate: true
         }, handleAuthResult);
       }
+      
 
         /*// OAuth2 functions
         function handleClientLoad() {
@@ -72,7 +73,6 @@
 
           // Handle the initial sign-in state.
           updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-
             if (authResult && !authResult.error) {
                 authorizeButton.style.visibility = 'hidden'; 		// if authorized, hide button
                 // Listen for sign-in state changes.
