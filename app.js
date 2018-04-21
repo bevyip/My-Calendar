@@ -1,3 +1,4 @@
+
 const app = {
     init(selectors) {
         this.max = 0
@@ -9,6 +10,7 @@ const app = {
 
     addTask(ev) {
         ev.preventDefault()
+       // const box="";
         const store = ev.target
         const task = {
             // stores input and assigns id
