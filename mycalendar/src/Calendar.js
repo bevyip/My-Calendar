@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import $ from 'jquery'; 
 //import './Calendar.css';
-/* global gapi */
-/* global initClient */
-/* global updateSigninStatus */
-/* global handleAuthClick */
-/* global handleSignoutClick */
-/* global handleAuthResult */
-/* global appendPre */
-/* global listUpcomingEvents */
-/* global refreshICalendarframe */
+/* global gapi, initClient, updateSigninStatus, handleAuthClick, handleSignoutClick, handleAuthResult */
+/* global appendPre, listUpcomingEvents, refreshICalendarframe */
 
 
 class Calendar extends Component {
@@ -25,7 +18,6 @@ class Calendar extends Component {
 
     componentDidMount() {
         var today = new Date();
-
         today = today.toISOString();
 
         var twoHoursLater = new Date(today.getTime() + (2 * 1000 * 60 * 60));
@@ -242,7 +234,7 @@ class Calendar extends Component {
                 <h1>HELLO DO YOU SEE ME</h1>
 
                 <script src="https://apis.google.com/js/client.js?onload=handleClientLoad" type="text/javascript"></script>
-                <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                {/*<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>*/}
 
                 {/*<!-- Navigation -->*/}
                 <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
