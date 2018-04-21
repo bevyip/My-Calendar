@@ -1,3 +1,4 @@
+
 const app = {
     init(selectors) {
         this.max = 0
@@ -9,6 +10,7 @@ const app = {
 
     addTask(ev) {
         ev.preventDefault()
+       // const box="";
         const store = ev.target
         const task = {
             // stores input and assigns id
@@ -20,19 +22,27 @@ const app = {
         const listItem = this.renderListItem(task)
         const listType = this.listItemBox(task)
         // adds the task to the list
-        // this.list.appendChild(listItem)
+         //this.list.appendChild(listItem)
+         // this.list.appendChild(listType)
+        
        //  this.list.insertBefore(listType, listItem)
        this.list.appendChild(listType) + this.list.appendChild(listItem)
         ++ this.max
         //reset line
         store.reset()
 
-        
+        // this.list.appendTo(listItem)
+        //listType.appendTo(listItem)
     },
 
-    renderListItem(task) {
+    renderListItem(task) { /*
         const item = document.createElement('li')
-        item.textContent = task.name
+        item.textContent = task.name */
+        const item = document.createElement('li') 
+        //item.setAttribute('type', 'li');
+        item.id = "itemid"
+        // item.insertBefore(listItem, listType);
+        item.textContent = task.name;
         return item
     },
 
