@@ -7,6 +7,8 @@ var SCOPES = "https://www.googleapis.com/auth/calendar";
 var CALENDAR_ID = 'fk765birljiou3i7njv358n700@group.calendar.google.com';
 var API_KEY = 'AIzaSyCdC4elPM1IHb1Ct_sZw7D2XIC5tb8tmJo';
 
+/* global gapi */
+
 class Calendar extends Component {
     // define a state variable named 'events' as an array
     constructor(props) {
@@ -20,18 +22,18 @@ class Calendar extends Component {
         this.getEvents();
         var moment = require('moment');
         moment().format();
-        console.log(window.gapi);
     }
 
     // make call to Google Calendar API and update the state with response
     getEvents() {
+        // console.log(gapi);
         let that = this;
         function start() {
-            window.gapi.client.init({
-                'apiKey': this.API_KEY
+            gapi.client.init({
+                'apiKey': API_KEY
             }).then(function () {
-                return window.gapi.client.request({
-                    'path': `https://www.googleapis.com/calendar/v3/calendars/${this.CALENDAR_ID}/events`,
+                return gapi.client.request({
+                    'path': `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events`,
                 })
             }).then((response) => {
                 // Once the request promise is resolved we will get the list of events as response. 
@@ -48,7 +50,7 @@ class Calendar extends Component {
         // First one for libraries and second one is a callback function
         // which can be triggered once the requested libraries are loaded.
        
-        //window.gapi.load('client', start)
+        gapi.load('client', start)
     }
 
     render() {
@@ -78,12 +80,13 @@ class Calendar extends Component {
         return (
             <div id="divifm">
                 {/*<p>HELLO I'M IN CALENDAR.JS</p>*/}
+
                 <iframe id="ifmCalendar"
                     src="https://calendar.google.com/calendar/embed?src=fk765birljiou3i7njv358n700%40group.calendar.google.com&ctz=America%2FNew_York"
                     styles="border-width: 0"
                     width="1000"
                     height="600"
-                    frameborder="0"
+                    frameBorder="0"
                     scrolling="no">
                 </iframe>
             </div>
