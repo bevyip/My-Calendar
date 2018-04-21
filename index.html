@@ -229,6 +229,7 @@
                         color: #555;
                         padding: 10px;
                         float: left;
+                        display: inline;
                         text-align: center;
                         cursor: pointer;
                         transition: 0.3s;
@@ -236,6 +237,12 @@
 
                     .addBtn:hover {
                         background-color: #bbb;
+                    }
+
+                    .header:after {
+                        content: "";
+                        display: table;
+                        clear: both;
                     }
 
                 </style>
