@@ -4,19 +4,110 @@
         function validate(){
             var m = document.getElementById('selectMonth').value;
             var d = document.getElementById('selectDay').value;
+            console.log("test")
+            console.log(m)
+            console.log(d)
 
             if(m == "january" || m == "march" || m == "may" || m == "july" || m == "august" || m == "october" || m == "december") {
+                document.getElementById('selectDay').innerHTML = "<option>Day</option>" + 
+                        "<option value=\"1\">1</option>" +
+                        "<option value=\"2\">2</option>" +
+                        "<option value=\"3\">3</option>" +
+                        "<option value=\"4\">4</option>" +
+                        "<option value=\"5\">5</option>" +
+                        "<option value=\"6\">6</option>" +
+                        "<option value=\"7\">7</option>" +
+                        "<option value=\"8\">8</option>" +
+                        "<option value=\"9\">9</option>" +
+                        "<option value=\"10\">10</option>" +
+                        "<option value=\"11\">11</option>" +
+                        "<option value=\"12\">12</option>" +
+                        "<option value=\"13\">13</option>" +
+                        "<option value=\"14\">14</option>" +
+                        "<option value=\"15\">15</option>" +
+                        "<option value=\"16\">16</option>" +
+                        "<option value=\"17\">17</option>" +
+                        "<option value=\"18\">18</option>" +
+                        "<option value=\"19\">19</option>" +
+                        "<option value=\"20\">20</option>" +
+                        "<option value=\"21\">21</option>" +
+                        "<option value=\"22\">23</option>" +
+                        "<option value=\"24\">24</option>" +
+                        "<option value=\"25\">25</option>" +
+                        "<option value=\"26\">26</option>" +
+                        "<option value=\"27\">27</option>" +
+                        "<option value=\"28\">28</option>" + 
+                        "<option value=\"29\">29</option>" + 
+                        "<option value=\"30\">30</option>" + 
+                        "<option value=\"31\">31</option>";
                 
                 //document.getElementById('selectDay').setAttribute('max', '5');
                 //document.getElementById('selectDay').innerHTML = "<input id=\"selectDay\" placeholder=\"Day\" type=\"number\" name=\"day\" min=\"1\" max=\"2\">";
             } else if(m == "april" || m == "june" || m == "september" || m == "november") {
-
+                "<option value=\"1\">1</option>" +
+                        "<option value=\"2\">2</option>" +
+                        "<option value=\"3\">3</option>" +
+                        "<option value=\"4\">4</option>" +
+                        "<option value=\"5\">5</option>" +
+                        "<option value=\"6\">6</option>" +
+                        "<option value=\"7\">7</option>" +
+                        "<option value=\"8\">8</option>" +
+                        "<option value=\"9\">9</option>" +
+                        "<option value=\"10\">10</option>" +
+                        "<option value=\"11\">11</option>" +
+                        "<option value=\"12\">12</option>" +
+                        "<option value=\"13\">13</option>" +
+                        "<option value=\"14\">14</option>" +
+                        "<option value=\"15\">15</option>" +
+                        "<option value=\"16\">16</option>" +
+                        "<option value=\"17\">17</option>" +
+                        "<option value=\"18\">18</option>" +
+                        "<option value=\"19\">19</option>" +
+                        "<option value=\"20\">20</option>" +
+                        "<option value=\"21\">21</option>" +
+                        "<option value=\"22\">23</option>" +
+                        "<option value=\"24\">24</option>" +
+                        "<option value=\"25\">25</option>" +
+                        "<option value=\"26\">26</option>" +
+                        "<option value=\"27\">27</option>" +
+                        "<option value=\"28\">28</option>" + 
+                        "<option value=\"29\">29</option>" + 
+                        "<option value=\"30\">30</option>";
+                        
+                
             } else if(m == "february") {
-
+                "<option value=\"1\">1</option>" +
+                        "<option value=\"2\">2</option>" +
+                        "<option value=\"3\">3</option>" +
+                        "<option value=\"4\">4</option>" +
+                        "<option value=\"5\">5</option>" +
+                        "<option value=\"6\">6</option>" +
+                        "<option value=\"7\">7</option>" +
+                        "<option value=\"8\">8</option>" +
+                        "<option value=\"9\">9</option>" +
+                        "<option value=\"10\">10</option>" +
+                        "<option value=\"11\">11</option>" +
+                        "<option value=\"12\">12</option>" +
+                        "<option value=\"13\">13</option>" +
+                        "<option value=\"14\">14</option>" +
+                        "<option value=\"15\">15</option>" +
+                        "<option value=\"16\">16</option>" +
+                        "<option value=\"17\">17</option>" +
+                        "<option value=\"18\">18</option>" +
+                        "<option value=\"19\">19</option>" +
+                        "<option value=\"20\">20</option>" +
+                        "<option value=\"21\">21</option>" +
+                        "<option value=\"22\">23</option>" +
+                        "<option value=\"24\">24</option>" +
+                        "<option value=\"25\">25</option>" +
+                        "<option value=\"26\">26</option>" +
+                        "<option value=\"27\">27</option>" +
+                        "<option value=\"28\">28</option>";
+                
             }
     }
     </script>
-    <a href="http://jquery.com/">jQuery</a>
+   <!-- <a href="http://jquery.com/">jQuery</a>
     <script src="jquery.js"></script>
     <script>
         var select = '';
@@ -24,7 +115,7 @@
             select += '<option value=' + i + '>' + i + '</option>';
         }
         $('#selectDay').html(select);
-    </script>
+    </script> -->
 <link href="./style.css" type="text/css" rel="stylesheet">    
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +130,7 @@
             <h2><center>Select Date:</Datag></center></h2>
             <form id="date-form">
                     <center>
-                    <select name="Month" id="selectMonth">
+                    <select name="Month" id="selectMonth" onchange="validate()">
                         <option value="month">Month</option>
                         <option value="january">January</option>
                         <option value="february">February</option>
@@ -54,10 +145,11 @@
                         <option value="november">November</option>
                         <option value="december">December</option>
                     </select>
-                  <!--  <select name="Day" id="selectDay"> 
+                   <!-- <select name="Day" id="selectDay" onchange="validate()"> 
+                        
                         <option>Day</option> -->
                     <input id="selectDay" placeholder="Day" type="number" name="day" min="1" max="31" >
-                  <!--  </select> -->
+                    <!-- </select> -->
                     <select name="Year" id="selectYear">
                         <option value="year">Year</option>
                         <option value="2018">2018</option>
@@ -65,11 +157,157 @@
                     </center>
                 </form>
 
-            <h2><center>To Do List:</Datag></center></h2>
-            <form id="task-form">
-                <div class="input-group">
+            <h2><center>Select Time:</center></h2>
+            <form id="time-form">
                 <center>
-                <!-- textbox for task -->
+                    <input type = "time" id = "selectTime" name="time">
+                </center>
+            </form>
+
+            <div id="myDIV" class="header">
+            <h2><center>To Do List:</center></h2>
+            <center>
+            <input type="text" id="myInput" placeholder="Add New Task">
+            </center>
+            <button
+                  onclick="newElement()"
+                  class="addBtn"
+                  type="submit"
+                >Add</button>
+           <!-- <span onclick="newElement()" class="primary button">Add</span> -->
+            </div>
+
+            <ul id="myUL"></ul>
+
+
+            <!-- <form id="task-form"> -->
+                <style>
+                   
+                    ul li {
+                        cursor: pointer;
+                        position: relative;
+                        padding: 12px 8px 12px 40px;
+                        list-style-type: none;
+                    
+
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                    }    
+
+                
+                    ul li.checked {
+                        color: #fff;
+                        text-decoration: line-through;
+                    }
+
+                    ul li.checked::before {
+                        content: '';
+                        position: absolute;
+                        border-style: solid;
+                        border-width: 0 2px 2px 0;
+                        top: 10px;
+                        left: 16px;
+                        transform: rotate(45deg);
+                        height: 15px;
+                        width: 7px;
+                    }
+
+                    .close {
+                        position: center;
+                        top: 0;
+                        padding: 12px 16px 12px 16px;
+                    }
+                    
+                    .close:hover {
+                        background-color: #f44336;
+                        color: white;
+                    }
+
+                    .addBtn {
+                        color: #555;
+                        padding: 10px;
+                        float: left;
+                        display: inline;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: 0.3s;
+                    }
+
+                    .addBtn:hover {
+                        background-color: #bbb;
+                    }
+
+                    .header:after {
+                        content: "";
+                        display: table;
+                        clear: both;
+                    }
+
+                </style>
+                
+                <script>
+                    
+                    //create close
+                    var myNodelist = document.getElementsByTagName("LI");
+                    var i;
+                    for(i = 0; i < myNodelist.length; i++) {
+                        var span = document.createElement("SPAN");
+                        var txt = document.createTextNode("\u00D7");
+                        span.className = "close";
+                        span.appendChild(txt);
+                        myNodelist[i].appendChild(span);
+                    }
+
+                    //hide close
+                    var close = document.getElementsByClassName("close");
+                    var i;
+                    for(i = 0; i < close.length; i++) {
+                        close[i].onclick = function() {
+                            var div = this.parentElement;
+                            div.style.display = "none";
+                        }
+                    }
+
+                    //create check
+                    var list = document.querySelector('ul');
+                    list.addEventListener('click', function(ev) {
+                        if(ev.target.tagName === 'LI') {
+                            ev.target.classList.toggle('checked');
+                        }
+                    }, false);
+
+                    // new item added to list
+                    function newElement() {
+                        var li = document.createElement("li");
+                        var inputValue = document.getElementById("myInput").value;
+                        var t = document.createTextNode(inputValue);
+                        li.appendChild(t);
+                        if(inputValue === '') {
+                            alert("Task Field Empty!");
+                        }
+                        document.getElementById("myUL").appendChild(li);
+                        document.getElementById("myInput").value = " ";
+
+                        var span = document.createElement("SPAN");
+                        var txt = document.createTextNode("\u00D7");
+                        span.className = "close";
+                        span.appendChild(txt);
+                        li.appendChild(span);
+
+                        for(i = 0; i < close.length; i++) {
+                            close[i].onclick = function() {
+                                var div = this.parentElement;
+                                div.style.display = "none";
+                            }
+                        }
+                    }
+                </script>
+
+                <!-- <div class="input-group">
+                <center>
+
                 <input
                   type="text"
                   class="input-group-field"
@@ -82,23 +320,27 @@
                   type="submit"
                 >Add</button>
                 </center>
-            </div>
-            </form>
+            </div> -->
+         
+           <!-- </form> -->
+    
           </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="medium-8 medium-offset-2 column">
 
                              
-            <!-- <div class="medium-8 medium-centered column"> -->
                 <center>
-        
-                <ol style="list-style: none;" id="task-list" > </ol> 
+                <div class="inline">
+                    <ol style="list-style: none;" id="task-list"></ol> 
+                    <div class="inline2"></div>
+                </div>
+                
                 
                 </center>
             </div>
-        </div>
+        </div> -->
 
         <script src="app.js"></script>
     </body>

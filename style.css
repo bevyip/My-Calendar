@@ -25,7 +25,21 @@ body {
 select>option[value="month"] {
     display:none;
 }
+
+select>option[value="year"] {
+    display:none;
+}
+
 .row {
     display: inline-block;
     width: 100%;
 }
+.inline2 {
+    display: inline;
+}
+
+.itemid {
+    display: inline-block;
+}
+
+
