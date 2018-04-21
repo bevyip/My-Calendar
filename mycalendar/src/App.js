@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom'
-import * as Calendar from './Calendar';
+import Calendar from './Calendar';
 import AddEvent from './AddEvent';
 import './Calendar.css';
 import './App.css';
@@ -16,9 +16,13 @@ class App extends Component {
         </header>
         {/*<button id="authorize-button" style="display: none;">Authorize</button>*/}
         {/*<button id="signout-button" style="display: none;">Sign Out</button>*/}
+       
         <div className="Calendar">
-            <p>HELLO DO YOU SEE ME</p>
+            {/*<p>HELLO DO YOU SEE ME I'm in App.js</p>*/}
+            <Calendar />
+
           </div>
+
         <Switch>
           <Route path='/AddEvent' component={AddEvent} />
         </Switch>

@@ -9,3 +9,5 @@ class AddEvent extends Component {
         );
     }
 }
+
+export default AddEvent;
