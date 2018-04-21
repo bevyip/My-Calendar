@@ -5,6 +5,8 @@
             var m = document.getElementById('selectMonth').value;
             var d = document.getElementById('selectDay').value;
             console.log("test")
+            console.log(m)
+            console.log(d)
 
             if(m == "january" || m == "march" || m == "may" || m == "july" || m == "august" || m == "october" || m == "december") {
                 document.getElementById('selectDay').innerHTML = "<option>Day</option>" + 
@@ -143,11 +145,11 @@
                         <option value="november">November</option>
                         <option value="december">December</option>
                     </select>
-                    <select name="Day" id="selectDay" onchange="validate()"> 
+                   <!-- <select name="Day" id="selectDay" onchange="validate()"> 
                         
-                        <option>Day</option> 
-                    <!-- <input id="selectDay" placeholder="Day" type="number" name="day" min="1" max="31" > -->
-                    </select> 
+                        <option>Day</option> -->
+                    <input id="selectDay" placeholder="Day" type="number" name="day" min="1" max="31" >
+                    <!-- </select> -->
                     <select name="Year" id="selectYear">
                         <option value="year">Year</option>
                         <option value="2018">2018</option>
@@ -155,11 +157,150 @@
                     </center>
                 </form>
 
-            <h2><center>To Do List:</Datag></center></h2>
-            <form id="task-form">
-                <div class="input-group">
+            <h2><center>Select Time:</center></h2>
+            <form id="time-form">
                 <center>
-                <!-- textbox for task -->
+                    <input type = "time" id = "selectTime" name="time">
+                </center>
+            </form>
+
+            <div id="myDIV" class="header">
+            <h2><center>To Do List:</center></h2>
+            <center>
+            <input type="text" id="myInput" placeholder="Add New Task">
+            </center>
+            <button
+                  onclick="newElement()"
+                  class="addBtn"
+                  type="submit"
+                >Add</button>
+           <!-- <span onclick="newElement()" class="primary button">Add</span> -->
+            </div>
+
+            <ul id="myUL"></ul>
+
+
+            <!-- <form id="task-form"> -->
+                <style>
+                   
+                    ul li {
+                        cursor: pointer;
+                        position: relative;
+                        padding: 12px 8px 12px 40px;
+                        list-style-type: none;
+                    
+
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                    }    
+
+                
+                    ul li.checked {
+                        color: #fff;
+                        text-decoration: line-through;
+                    }
+
+                    ul li.checked::before {
+                        content: '';
+                        position: absolute;
+                        border-style: solid;
+                        border-width: 0 2px 2px 0;
+                        top: 10px;
+                        left: 16px;
+                        transform: rotate(45deg);
+                        height: 15px;
+                        width: 7px;
+                    }
+
+                    .close {
+                        position: center;
+                        top: 0;
+                        padding: 12px 16px 12px 16px;
+                    }
+                    
+                    .close:hover {
+                        background-color: #f44336;
+                        color: white;
+                    }
+
+                    .addBtn {
+                        color: #555;
+                        padding: 10px;
+                        float: left;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: 0.3s;
+                    }
+
+                    .addBtn:hover {
+                        background-color: #bbb;
+                    }
+
+                </style>
+                
+                <script>
+                    
+                    //create close
+                    var myNodelist = document.getElementsByTagName("LI");
+                    var i;
+                    for(i = 0; i < myNodelist.length; i++) {
+                        var span = document.createElement("SPAN");
+                        var txt = document.createTextNode("\u00D7");
+                        span.className = "close";
+                        span.appendChild(txt);
+                        myNodelist[i].appendChild(span);
+                    }
+
+                    //hide close
+                    var close = document.getElementsByClassName("close");
+                    var i;
+                    for(i = 0; i < close.length; i++) {
+                        close[i].onclick = function() {
+                            var div = this.parentElement;
+                            div.style.display = "none";
+                        }
+                    }
+
+                    //create check
+                    var list = document.querySelector('ul');
+                    list.addEventListener('click', function(ev) {
+                        if(ev.target.tagName === 'LI') {
+                            ev.target.classList.toggle('checked');
+                        }
+                    }, false);
+
+                    // new item added to list
+                    function newElement() {
+                        var li = document.createElement("li");
+                        var inputValue = document.getElementById("myInput").value;
+                        var t = document.createTextNode(inputValue);
+                        li.appendChild(t);
+                        if(inputValue === '') {
+                            alert("Task Field Empty!");
+                        }
+                        document.getElementById("myUL").appendChild(li);
+                        document.getElementById("myInput").value = " ";
+
+                        var span = document.createElement("SPAN");
+                        var txt = document.createTextNode("\u00D7");
+                        span.className = "close";
+                        span.appendChild(txt);
+                        li.appendChild(span);
+
+                        for(i = 0; i < close.length; i++) {
+                            close[i].onclick = function() {
+                                var div = this.parentElement;
+                                div.style.display = "none";
+                            }
+                        }
+                    }
+                </script>
+
+                <!-- <div class="input-group">
+                <center>
+
                 <input
                   type="text"
                   class="input-group-field"
@@ -172,25 +313,27 @@
                   type="submit"
                 >Add</button>
                 </center>
-            </div>
-            </form>
+            </div> -->
+         
+           <!-- </form> -->
+    
           </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="medium-8 medium-offset-2 column">
 
                              
-            <!-- <div class="medium-8 medium-centered column"> -->
                 <center>
                 <div class="inline">
                     <ol style="list-style: none;" id="task-list"></ol> 
+                    <div class="inline2"></div>
                 </div>
                 
                 
                 </center>
             </div>
-        </div>
+        </div> -->
 
         <script src="app.js"></script>
     </body>
