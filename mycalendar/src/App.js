@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom'
-import Calendar from './Calendar'
-import './bootstrap.min.css';
+import * as Calendar from './Calendar';
 import './Calendar.css';
-import './jquery.js';
-import './bootstrap.min.js';
 import './App.css';
 
 class App extends Component {
@@ -17,13 +14,13 @@ class App extends Component {
         </header>
         <ul className="nav-links">
           <li>
-            <NavLink to={'/calendar'}>CALENDAR</NavLink>  
+            <NavLink to={'/Calendar'}>CALENDAR</NavLink>  
           </li>
         </ul>
-        <button id="authorize-button" style="display: none;">Authorize</button>
-        <button id="signout-button" style="display: none;">Sign Out</button>
+        {/*<button id="authorize-button" style="display: none;">Authorize</button>*/}
+        {/*<button id="signout-button" style="display: none;">Sign Out</button>*/}
         <Switch>
-          <Route path='/calendar' component={Calendar} />
+          <Route path='/Calendar' component={Calendar} />
         </Switch>
       </div>
     );
