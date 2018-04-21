@@ -4,7 +4,7 @@ class AddEvent extends Component {
     render(){
         return(
             <div>
-                <h1>HELLO DO YOU SEE ME</h1>
+                {/*<h1>HELLO DO YOU SEE ME</h1>*/}
             </div>
         );
     }

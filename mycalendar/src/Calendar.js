@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import asyncLoad from 'react-async-loader';
 import moment from "moment";
 
 var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
@@ -7,32 +8,52 @@ var SCOPES = "https://www.googleapis.com/auth/calendar";
 var CALENDAR_ID = 'fk765birljiou3i7njv358n700@group.calendar.google.com';
 var API_KEY = 'AIzaSyCdC4elPM1IHb1Ct_sZw7D2XIC5tb8tmJo';
 
-/* global gapi */
+//  /* global gapi */
+
+// For making gapi object passed as props to our component
+const mapScriptToProps = state => ({
+   // gapi will be this.props.gapi
+   gapi: {
+      globalPath: 'gapi',
+      url: DISCOVERY_DOCS,
+   }
+});
 
 class Calendar extends Component {
     // define a state variable named 'events' as an array
     constructor(props) {
-        super(props)
-        this.state = {
-            events: []
-        }
+        super(props);
+        // this.state = {
+        this.events = [];
+        this.gapi = null;
+        this.getEvents = this.getEvents.bind(this);
+        // }
     }
 
     componentDidMount = () => {
-        this.getEvents();
-        var moment = require('moment');
-        moment().format();
+        // Check is gapi loaded?
+        if (this.props.gapi !== null) {
+            this.getEvents();
+            var moment = require('moment');
+            moment().format();
+        }
+    }
+
+    componentWillReceiveProps({ gapi }) {
+        if (this.props.gapi !== null) {
+            this.getEvents();
+        }
     }
 
     // make call to Google Calendar API and update the state with response
     getEvents() {
-        // console.log(gapi);
+        this.gapi = window.gapi; 
         let that = this;
         function start() {
-            gapi.client.init({
+            that.gapi.client.init({
                 'apiKey': API_KEY
             }).then(function () {
-                return gapi.client.request({
+                return that.gapi.client.request({
                     'path': `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events`,
                 })
             }).then((response) => {
@@ -50,13 +71,13 @@ class Calendar extends Component {
         // First one for libraries and second one is a callback function
         // which can be triggered once the requested libraries are loaded.
        
-        gapi.load('client', start)
+        that.gapi.load('client', start)
     }
 
     render() {
-        const { time, events } = this.state;
-
-        let eventsList = events.map(function (event) {
+        const { /*time,*/ events } = this.events;
+        // console.log(events);
+        let eventsList = this.events.map(function (event) {
             return (
                 <a
                     className="list-group-item"
