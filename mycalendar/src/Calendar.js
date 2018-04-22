@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import asyncLoad from 'react-async-loader';
 import moment from "moment";
 
 var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
@@ -7,8 +6,6 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 var SCOPES = "https://www.googleapis.com/auth/calendar";
 var CALENDAR_ID = 'fk765birljiou3i7njv358n700@group.calendar.google.com';
 var API_KEY = 'AIzaSyCdC4elPM1IHb1Ct_sZw7D2XIC5tb8tmJo';
-
-//  /* global gapi */
 
 // For making gapi object passed as props to our component
 const mapScriptToProps = state => ({
@@ -85,7 +82,7 @@ class Calendar extends Component {
                     target="_blank"
                     key={event.id}
                 >
-                    {event.summary}{" "}
+                    {/*{event.summary}{" "}
                     <span className="badge">
                         {moment(event.start.dateTime).format("h:mm a")},{" "}
                         {moment(event.end.dateTime).diff(
@@ -93,7 +90,7 @@ class Calendar extends Component {
                             "minutes"
                         )}{" "}
                         minutes, {moment(event.start.dateTime).format("MMMM Do")}{" "}
-                    </span>
+                    </span>*/}
                 </a>
             );
         });
