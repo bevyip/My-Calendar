@@ -9,22 +9,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <div className="App-header">
             <h3>Ain't no calendar like</h3>
             <h1>MY CALENDAR</h1>
-            <NavLink className="Link" to={'/AddEvent'}>ADD AN EVENT!</NavLink>
-        </header>
+            <ul>
+              <li>
+                <NavLink className="Link" to={'/addEvent'}>Add An Event</NavLink>
+              </li>
+              <li>
+                <NavLink className="CalLink" to={'/'}>View Calendar</NavLink>
+              </li>
+
+            </ul>
         {/*<button id="authorize-button" style="display: none;">Authorize</button>*/}
         {/*<button id="signout-button" style="display: none;">Sign Out</button>*/}
-       
-        <div className="Calendar">
-            {/*<p>HELLO DO YOU SEE ME I'm in App.js</p>*/}
-            <Calendar />
-
-          </div>
+        </div>
 
         <Switch>
-          <Route path='/AddEvent' component={AddEvent} />
+          <Route exact path='/' component={Calendar} />
+          <Route path='/addEvent' component={AddEvent} />
         </Switch>
       </div>
     );
