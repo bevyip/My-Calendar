@@ -8,8 +8,18 @@
 }
 
 h1{
-  /*letter-spacing: 2px;*/
   font-size: 50px;
+}
+
+li {
+  list-style-type: none;
+  padding-bottom: 3px;
+}
+
+ul li { 
+  display: inline-block;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
 }
 
 .App-header {
@@ -29,7 +39,13 @@ h1{
 }
 
 .Link {
-  color: pink; 
+  color: pink;
+  padding-right: 30px;
+}
+
+.CalLink {
+  /*padding: 0px;*/
+  color: pink;
 }
 
 .Calendar {

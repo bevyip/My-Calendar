@@ -14,10 +14,10 @@ class App extends Component {
             <h1>MY CALENDAR</h1>
             <ul>
               <li>
-                <NavLink className="Link" to={'/addEvent'}>ADD AN EVENT!</NavLink>
+                <NavLink className="Link" to={'/addEvent'}>Add An Event</NavLink>
               </li>
               <li>
-                <NavLink className="Link" to={'/'}>MyCalendar</NavLink>
+                <NavLink className="CalLink" to={'/'}>View Calendar</NavLink>
               </li>
 
             </ul>
