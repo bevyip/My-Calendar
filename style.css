@@ -1,45 +1,138 @@
-h1 {
-    font-size: 360%;
-    /* font-family: Brush Script MT; */
-    font-family: Impact;
-    /* color: rgb(167, 23, 52); */
-    color: whitesmoke;
-}
-h2 {
-
-    font-size: 150%;
-    font-family: Impact;
-    color: whitesmoke
-}
-h3 {
-    font-size: 150%;
-    font-family: Impact;
-    color: whitesmoke
-}
 body {
-
-   /* background-color: darkslategrey; */
-   background-color: rgba(73, 8, 8, 0.966);
-    color: whitesmoke;
-}
-select>option[value="month"] {
-    display:none;
+    margin: 0;
+    min-width: 250px;
 }
 
-select>option[value="year"] {
-    display:none;
+* {
+    box-sizing: border-box;
+
+ }
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
-.row {
-    display: inline-block;
-    width: 100%;
-}
-.inline2 {
-    display: inline;
-}
+ ul li {
+     cursor: pointer;
+     position: relative;
+     padding: 12px 8px 12px 40px;
+     list-style-type: none;
+     font-size: 18px;
+     font-family: Helvetica;
+     transition: 0.2s;
+     position: center;
 
-.itemid {
-    display: inline-block;
-}
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ }    
 
+  ul li:nth-child(odd) {
+     background: grey;
+ } 
+
+ ul li:nth-child(even) {
+     background: darkgrey;
+ }
+
+ ul li:hover {
+     background: black;
+ }
+
+ ul li.checked {
+     color: #fff;
+     text-decoration: line-through;
+     background: brown;
+ }
+
+ ul li.checked::before {
+     content: '';
+     position: absolute;
+     border-style: solid;
+     border-width: 0 2px 2px 0;
+     border-color: #fff;
+     top: 10px;
+     left: 16px;
+     transform: rotate(45deg);
+     height: 15px;
+     width: 7px;
+ }
+
+ .close {
+     /* position: center; */
+     position: absolute;
+     right: 0;
+     top: 0;
+     padding: 12px 16px 12px 16px;
+ }
+ 
+ .close:hover {
+     background-color: #f44336;
+     color: white;
+ }
+ 
+ .inputBox {
+     border: none;
+     padding: 10px;
+     float: left;
+     /*display: flex;
+     vertical-align: middle;*/
+     font-size: 16px;
+     width: 75%;
+ }
+
+ .addBtn {
+     color: #555;
+     padding: 10px;
+     width: 25%;
+     float: left;
+     /*display: inline-block;
+     vertical-align: middle;*/
+     text-align: center;
+     font-size: 16px;
+     cursor: pointer;
+     transition: 0.3s;
+     /*position: relative;*/
+ }
+
+ .addBtn:hover {
+     background-color: #bbb;
+ }
+
+ .header:after {
+     content: "";
+     display: table;
+     clear: both;
+ }
+
+ h1 {
+     font-size: 360%;
+     font-family: Impact;
+     color: whitesmoke;
+ }
+ h2 {
+
+     font-size: 150%;
+     font-family: Impact;
+     color: whitesmoke
+ }
+ h3 {
+     font-size: 150%;
+     font-family: Impact;
+     color: whitesmoke
+ }
+ body {
+
+ background-color: rgba(73, 8, 8, 0.966);
+     color: whitesmoke;
+ }
+ select>option[value="month"] {
+     display:none;
+ }
+
+ select>option[value="year"] {
+     display:none;
+ }
 
