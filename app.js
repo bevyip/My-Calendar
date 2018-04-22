@@ -1,71 +1,55 @@
 
-const app = {
-    init(selectors) {
-        this.max = 0
-        this.list = document.querySelector(selectors.listSelector)
-        document
-          .querySelector(selectors.taskSelector)
-          .addEventListener('submit', this.addTask.bind(this))
-    },
-
-    addTask(ev) {
-        ev.preventDefault()
-       // const box="";
-        const store = ev.target
-        const task = {
-            // stores input and assigns id
-            id: this.max + 1,
-            name: store.userTask.value,
-            
-        }
-        
-        const listItem = this.renderListItem(task)
-        const listType = this.listItemBox(task)
-        // adds the task to the list
-         //this.list.appendChild(listItem)
-         // this.list.appendChild(listType)
-        
-       //  this.list.insertBefore(listType, listItem)
-       this.list.appendChild(listType) + this.list.appendChild(listItem)
-        ++ this.max
-        //reset line
-        store.reset()
-
-        // this.list.appendTo(listItem)
-        //listType.appendTo(listItem)
-    },
-
-    renderListItem(task) { /*
-        const item = document.createElement('li')
-        item.textContent = task.name */
-        const item = document.createElement('li') 
-        //item.setAttribute('type', 'li');
-        item.id = "itemid"
-        // item.insertBefore(listItem, listType);
-        item.textContent = task.name;
-        return item
-    },
-
-    listItemBox(task) {
-        const box = document.createElement('input');
-        box.setAttribute('type', 'checkbox');
-        return box
-    },
-}
-
-app.init({
-    taskSelector: '#task-form',
-    listSelector: '#task-list'})
-
-    function validate(){
-        var m = document.getElementById('selectMonth').value;
-
-    if(m == "january" || m == "march" || m == "may" || m == "july" || m == "august" || m == "october" || m == "december") {
-        //document.getElementById('selectDay').setAttribute('max', '5');
-        document.getElementById('selectDay').innerHTML = "<input id=\"selectDay\" placeholder=\"Day\" type=\"number\" name=\"day\" min=\"1\" max=\"2\">";
-    } else if(m == "april" || m == "june" || m == "september" || m == "november") {
-
-    } else if(m == "february") {
-
+    //create close
+    var myNodelist = document.getElementsByTagName("LI");
+    var i;
+    for(i = 0; i < myNodelist.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        myNodelist[i].appendChild(span);
     }
-}
+
+    //hide close
+    var close = document.getElementsByClassName("close");
+    var i;
+    for(i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+        }
+    }
+
+    //create check
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+        if(ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('checked');
+        }
+    }, false);
+
+    // new item added to list
+    function newElement() {
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("myInput").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if(inputValue === '') {
+            alert("Task Field Empty!");
+        }
+        document.getElementById("myUL").appendChild(li);
+        document.getElementById("myInput").value = " ";
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for(i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
+            }
+        }
+    }
