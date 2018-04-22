@@ -68,7 +68,7 @@ class Calendar extends Component {
      * @param {Event} event Button click event.
      */
     handleAuthClick(event) {
-        event.preventDefault();
+        // event.preventDefault();
         this.gapi.auth.authorize({
             client_id: CLIENT_ID,
             scope: SCOPES,
