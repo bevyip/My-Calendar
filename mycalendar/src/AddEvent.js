@@ -8,6 +8,8 @@ constructor(props) {
 
 }
 
+//JAVASCRIPT CODE GOES HERE
+
 createClose() {
     var myNodelist = document.getElementsByTagName("LI");
     var i;
@@ -57,7 +59,7 @@ newElement() {
     span.className = "close";
     span.appendChild(txt);
     li.appendChild(span);
-    
+
     var close = document.getElementsByClassName("close");
     var i;
     for(i = 0; i < close.length; i++) {
@@ -71,13 +73,18 @@ newElement() {
 
 
 
-
+//HTML CODE GOES HERE
 render(){
     return(
         <div>
             <h1>HELLO DO YOU SEE ME</h1>
             <div className="AddEvent">
+            
             </div>
+
+            
+
+
         </div>
     );
     }
