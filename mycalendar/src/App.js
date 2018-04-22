@@ -23,10 +23,6 @@ class App extends Component {
             </ul>
         {/*<button id="authorize-button" style="display: none;">Authorize</button>*/}
         {/*<button id="signout-button" style="display: none;">Sign Out</button>*/}
-       
-        <div className="Calendar">
-            {/*<Calendar />*/}
-          </div>
         </div>
 
         <Switch>
