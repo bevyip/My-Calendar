@@ -49,9 +49,12 @@ class Calendar extends Component {
      */
     handleAuthResult(authResult) {
         var authorizeDiv = document.getElementById('authorize-div');
+        var Maincalendar = document.getElementById('Maincalendar');
+        console.log(Maincalendar);
         if (authResult && !authResult.error) {
             // Hide auth UI, then load client library.
             authorizeDiv.style.display = 'none';
+            Maincalendar.style.display = 'block';
             //this.gapi.load('client', start);
             //this.gapi.client.load('calendar', 'v3', listUpcomingEvents);
             this.getEvents();
@@ -59,6 +62,7 @@ class Calendar extends Component {
             // Show auth UI, allowing the user to initiate authorization by
             // clicking authorize button.
             authorizeDiv.style.display = 'inline';
+            Maincalendar.style.display = 'none';
         }
     }
 
@@ -201,15 +205,16 @@ class Calendar extends Component {
                         </button>
                     </div>
                 </div>
-
-                <iframe id="ifmCalendar"
-                    src="https://calendar.google.com/calendar/embed?src=fk765birljiou3i7njv358n700%40group.calendar.google.com&ctz=America%2FNew_York"
-                    styles="border-width: 0"
-                    width="1000"
-                    height="600"
-                    frameBorder="0"
-                    scrolling="no">
-                </iframe>
+                <div id="Maincalendar">
+                    <iframe id="ifmCalendar"
+                        src="https://calendar.google.com/calendar/embed?src=fk765birljiou3i7njv358n700%40group.calendar.google.com&ctz=America%2FNew_York"
+                        styles="border-width: 0"
+                        width="1000"
+                        height="600"
+                        frameBorder="0"
+                        scrolling="no">
+                    </iframe>
+                </div>
             </div>
         );
     }

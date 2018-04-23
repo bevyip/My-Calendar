@@ -21,8 +21,6 @@ class App extends Component {
               </li>
 
             </ul>
-        {/*<button id="authorize-button" style="display: none;">Authorize</button>*/}
-        {/*<button id="signout-button" style="display: none;">Sign Out</button>*/}
         </div>
 
         <Switch>
