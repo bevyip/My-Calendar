@@ -11,6 +11,10 @@ body {
   background-size: cover;
 }
 
+#Maincalendar {
+  display: none;
+}
+
 .panel-danger {
   color: red;
 }
