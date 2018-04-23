@@ -21,6 +21,7 @@ createClose() {
         myNodelist[i].appendChild(span);
 
     }
+}
 
     hideClose() {
         var close = document.getElementsByClassName("close");
@@ -59,6 +60,7 @@ createClose() {
         span.className = "close";
         span.appendChild(txt);
         li.appendChild(span);
+    }
 
 
 newElement() {
@@ -87,10 +89,7 @@ newElement() {
 
         }
     }
-
-
-
-
+}
 
     render() {
         return (
