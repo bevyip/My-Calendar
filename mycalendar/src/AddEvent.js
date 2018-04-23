@@ -78,7 +78,85 @@ render(){
             <h1>HELLO DO YOU SEE ME</h1>
             <div className="AddEvent">
             </div>
+            
+
+        <head>
+        <link href="./style.css" type="text/css" rel="stylesheet">    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>My Calendar</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        </head>
+
+            <body>
+            <div class="row">
+            <div class="medium-8 column"></div>
+            <h1><center>My Calendar</center></h1>
+            <h2><center>Select Date:</center></h2>
+            <form id="date-form">
+                    <center>
+                    <select name="Month" id="selectMonth" onchange="validate()">
+                        <option value="month">Month</option>
+                        <option value="january">January</option>
+                        <option value="february">February</option>
+                        <option value="march">March</option>
+                        <option value="april">April</option>
+                        <option value="may">May</option>
+                        <option value="june">June</option>
+                        <option value="july">July</option>
+                        <option value="august">August</option>
+                        <option value="september">September</option>
+                        <option value="october">October</option>
+                        <option value="november">November</option>
+                        <option value="december">December</option>
+                    </select>
+                        
+                        <option>Day</option> -->
+                    <input id="selectDay" placeholder="Day" type="number" name="day" min="1" max="31" />
+                    <select name="Year" id="selectYear">
+                        <option value="year">Year</option>
+                        <option value="2018">2018</option>
+                    </select>
+                    </center>
+                </form>
+
+
+
+            <h2><center>Select Time:</center></h2>
+            <form id="time-form">
+                <center>
+                    <input type = "time" id = "selectTime" name="time"/>
+                </center>
+            </form>
+
+
+            <div id="myDIV" class="header">
+            <h2><center>To Do List:</center></h2>
+            <center>
+                <form id="inForm">
+            <input class="inputBox" type="text" id="myInput" placeholder="Add New Task"/>
+            </form></center>
+            <button
+                  onclick="newElement()"
+                  class="addBtn"
+                  type="submit"
+                >Add</button>
+            </div>
+
+            <ul id="myUL"></ul>
+
+            </div>
         </div>
+
+        <script src="app.js"></script>
+        <script src="https://apis.google.com/js/api.js"></script>
+
+        </body>
+
+        </html>
+
+
     );
     }
 }
