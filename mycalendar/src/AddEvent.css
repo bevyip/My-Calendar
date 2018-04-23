@@ -10,7 +10,7 @@ body {
 }*/
 
 /* MIGHT NEED TO ADD THIS TO A FEW FUNCTIONS: box-sizing: border-box;*/
-/*
+
 ul {
     margin: 0;
     padding: 0;
@@ -46,7 +46,7 @@ ul {
  }
 
  ul li.checked {
-     color: #fff;
+     color: pink;
      text-decoration: line-through;
      background: brown;
  }
@@ -112,23 +112,23 @@ ul {
  h1 {
      font-size: 360%;
      font-family: Impact;
-     color: whitesmoke;
+     color: black;
  }
  h2 {
 
      font-size: 150%;
      font-family: Impact;
-     color: whitesmoke
+     color: black;
  }
  h3 {
      font-size: 150%;
      font-family: Impact;
-     color: whitesmoke
+     color: black;
  }
  body {
 
  background-color: rgba(73, 8, 8, 0.966);
-     color: whitesmoke;
+     color: black;
  }
  select>option[value="month"] {
      display:none;
@@ -137,4 +137,4 @@ ul {
  select>option[value="year"] {
      display:none;
  }
-*/
+
