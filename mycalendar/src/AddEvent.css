@@ -2,13 +2,39 @@
     box-sizing: border-box;
 }
 
-.ul-todo {
-    margin: 0;
-    padding: 0;
-    
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
 }
 
- .ul-todo {
+#selectMonth {
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#selectDay {
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#selectYear {
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+}
+
+#selectTime {
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+    text-align: center;
+}
+
+#myUL {
+   
+
      position: relative;
      cursor: pointer;
      padding: 12px 8px 12px 40px;
@@ -17,32 +43,32 @@
      font-family: Helvetica;
      transition: 0.2s;
     
-
      -webkit-user-select: none;
      -moz-user-select: none;
      -ms-user-select: none;
      user-select: none;
  }    
 
-  .ul-todo li:nth-child(odd) {
+#myUL li:nth-child(odd) {
      background: grey;
  } 
 
- .ul-todo li:nth-child(even) {
+ #myUL li:nth-child(even) {
      background: darkgrey;
  }
 
- .ul-todo li:hover {
-     background: black;
+ #myUL li:hover {
+     background: pink;
  }
 
- .ul-todo li.checked {
+ #myUL li.checked {
      color: pink;
      text-decoration: line-through;
      background: brown;
  }
 
- .ul-todo li.checked::before {
+
+ #myUL li.checked::before {
      content: '';
      position: absolute;
      border-style: solid;
@@ -67,10 +93,18 @@
      background-color: #f44336;
      color: white;
  }
+
+ #myDIV {
+     display: inline-block;
+     margin-bottom: 0;
+     vertical-align: middle;
+ }
  
- .inputBox {
-     border: none;
-     padding: 10px;
+  .inputBox {
+     /*border:blue;*/
+     /*padding: 10px;*/
+     padding: 0.3rem;
+     border: 2px solid palevioletred;
      float: left;
     
      font-size: 16px;
@@ -79,7 +113,8 @@
 
  .addBtn {
      color: #555;
-     padding: 10px;
+     /*padding: 10px;*/
+     padding: 0.3rem;
      width: 25%;
      float: left;
    
@@ -87,7 +122,6 @@
      font-size: 16px;
      cursor: pointer;
      transition: 0.3s;
-
  }
 
  .addBtn:hover {
@@ -100,24 +134,23 @@
      clear: both;
  }
 
- h1 {
+ .h1 {
      font-size: 360%;
      font-family: Impact;
      color: black;
  }
- h2 {
+ .h2 {
 
      font-size: 150%;
      font-family: Impact;
      color: black;
  }
- h3 {
+ .h3 {
      font-size: 150%;
      font-family: Impact;
      color: black;
  }
- body {
-
+ .body {
      color:white;
  }
  select>option[value="month"] {

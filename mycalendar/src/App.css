@@ -28,13 +28,13 @@ h1{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 20px;
   list-style-type: none;
-  padding-bottom: 3px;
 }
 
-/*li {
+#AppHeader li {
   list-style-type: none;
   padding-bottom: 3px;
-}*/
+  display: inline-block;
+}
 
 /*ul li { 
   display: inline-block;

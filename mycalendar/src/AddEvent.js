@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./AddEvent.css"
+import './AddEvent.css'
 
 class AddEvent extends Component {
 
@@ -162,6 +162,7 @@ newElement() {
                                 //onClick= "newElement()"
                                 className="addBtn"
                                 type="submit"
+                                styles="float: right"
                             >Add</button>
                         </div>
 
