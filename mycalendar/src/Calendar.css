@@ -4,6 +4,10 @@ body {
 	background: none;
 }
 
+#Maincalendar {
+  display: inline-block;
+}
+
 .full {
  -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -16,12 +20,4 @@ body {
 }
 .panel-success {
   color:green;
-}
-
-#authorize-div {
-  padding: 5px;
-}
-
-#AuthButton {
-  padding: 5px;
 }

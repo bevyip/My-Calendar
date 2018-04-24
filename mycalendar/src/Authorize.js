@@ -25,7 +25,7 @@ class Authorize extends Component {
         this.events = [];
         this.gapi = null;
         this.authorized = false;
-        this.getEvents = this.getEvents.bind(this);
+        this.loadAuth = this.loadAuth.bind(this);
         this.handleAuthResult = this.handleAuthResult.bind(this);
         this.appendPre = this.appendPre.bind(this);
         this.handleAuthClick = this.handleAuthClick.bind(this);
@@ -51,20 +51,20 @@ class Authorize extends Component {
      */
     handleAuthResult(authResult) {
         var authorizeDiv = document.getElementById('authorize-div');
-        var Maincalendar = document.getElementById('Maincalendar');
-        
+        var MainC = document.getElementById('MainC');
+        console.log(this.authorized);
         if (authResult && !authResult.error && this.authorized) {
             // Hide auth UI, then load client library.
             authorizeDiv.style.display = 'none';
-            Maincalendar.style.display = 'block';
+            MainC.style.display = 'block';
             //this.gapi.load('client', start);
             //this.gapi.client.load('calendar', 'v3', listUpcomingEvents);
-            this.getEvents();
+            this.loadAuth();
         } else {
             // Show auth UI, allowing the user to initiate authorization by
             // clicking authorize button.
             authorizeDiv.style.display = 'inline';
-            Maincalendar.style.display = 'none';
+            MainC.style.display = 'none';
         }
     }
 
@@ -84,50 +84,50 @@ class Authorize extends Component {
         return false;
     }
 
-    /**
-       * Print the summary and start datetime/date of the next ten events in
-       * the authorized user's calendar. If no events are found an
-       * appropriate message is printed.
-       */
-    listUpcomingEvents() {
-        var request = this.gapi.client.calendar.events.list({
-            'calendarId': 'primary', /* Can be 'primary' or a given calendarid */
-            'timeMin': (new Date()).toISOString(),
-            'showDeleted': false,
-            'singleEvents': true,
-            'maxResults': 10,
-            'orderBy': 'startTime'
-        });
+    // /**
+    //    * Print the summary and start datetime/date of the next ten events in
+    //    * the authorized user's calendar. If no events are found an
+    //    * appropriate message is printed.
+    //    */
+    // listUpcomingEvents() {
+    //     var request = this.gapi.client.calendar.events.list({
+    //         'calendarId': 'primary', /* Can be 'primary' or a given calendarid */
+    //         'timeMin': (new Date()).toISOString(),
+    //         'showDeleted': false,
+    //         'singleEvents': true,
+    //         'maxResults': 10,
+    //         'orderBy': 'startTime'
+    //     });
 
-        request.execute(function (resp) {
-            var events = resp.items;
-            this.appendPre('Upcoming events:');
-            // Once the request promise is resolved we will get the list of events as response. 
-            // Then we will call setState method of React to store data to the app state.
-            this.setState({ events }, () => {
-                console.log(this.state.events);
-            })
+    //     request.execute(function (resp) {
+    //         var events = resp.items;
+    //         this.appendPre('Upcoming events:');
+    //         // Once the request promise is resolved we will get the list of events as response. 
+    //         // Then we will call setState method of React to store data to the app state.
+    //         this.setState({ events }, () => {
+    //             console.log(this.state.events);
+    //         })
 
-            if (this.state.events.length > 0) {
-                for (var i = 0; i < this.state.events.length; i++) {
-                    var event = this.state.events[i];
-                    var when = event.start.dateTime;
-                    if (!when) {
-                        when = event.start.date;
-                    }
-                    this.appendPre(event.summary + ' (' + when + ')')
-                }
-            } else {
-                this.appendPre('No upcoming events found.');
-            }
-        });
-    }
+    //         if (this.state.events.length > 0) {
+    //             for (var i = 0; i < this.state.events.length; i++) {
+    //                 var event = this.state.events[i];
+    //                 var when = event.start.dateTime;
+    //                 if (!when) {
+    //                     when = event.start.date;
+    //                 }
+    //                 this.appendPre(event.summary + ' (' + when + ')')
+    //             }
+    //         } else {
+    //             this.appendPre('No upcoming events found.');
+    //         }
+    //     });
+    // }
 
 
     componentDidMount = () => {
         // Check is gapi loaded?
         if (this.props.gapi !== null) {
-            this.getEvents();
+            this.loadAuth();
             var moment = require('moment');
             moment().format();
         }
@@ -135,12 +135,12 @@ class Authorize extends Component {
 
     componentWillReceiveProps({ gapi }) {
         if (this.props.gapi !== null) {
-            this.getEvents();
+            this.loadAuth();
         }
     }
 
     // make call to Google Calendar API and update the state with response
-    getEvents() {
+    loadAuth() {
         this.gapi = window.gapi;
         let that = this;
         function start() {
@@ -208,7 +208,7 @@ class Authorize extends Component {
                         </button>
                     </div>
                 </div>
-                <div id="Maincalendar" styles="display: none">
+                <div id="MainC">
                     <iframe id="ifmCalendar"
                         src="https://calendar.google.com/calendar/embed?src=fk765birljiou3i7njv358n700%40group.calendar.google.com&ctz=America%2FNew_York"
                         styles="border-width: 0"
