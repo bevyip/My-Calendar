@@ -8,9 +8,8 @@ class AddEvent extends Component {
 
     }
 
-    //JAVASCRIPT CODE GOES HERE
-
     createClose() {
+        //PROBLEM AREA for close not appending for each li item
         var myNodelist = document.getElementsByTagName("LI");
         var i;
         for (i = 0; i < myNodelist.length; i++) {
@@ -24,10 +23,10 @@ class AddEvent extends Component {
     }
 
     hideClose() {
-        var close = document.getElementsByClassName("close");
+        var hideclose = document.getElementsByClassName("close");
         var j;
-        for (j = 0; j < close.length; j++) {
-            close[j].onclick = function () {
+        for (j = 0; j < hideclose.length; j++) {
+            hideclose[j].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
             }
@@ -62,9 +61,9 @@ class AddEvent extends Component {
         li.appendChild(span);
 
         var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
+        var k;
+        for (k = 0; k < close.length; k++) {
+            close[k].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
 
@@ -148,7 +147,8 @@ class AddEvent extends Component {
                             >Add</button>
                         </div>
 
-                        <ul id="myUL" className="ul-todo"></ul>
+                        <ul id="myUL" className="ul-todo">
+                        </ul>
                     
 
                 </div>
