@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './AddEvent.css'
 // import { makeApiCall } from './Calendar';
+import { makeApiCall } from './Calendar';
 
 class AddEvent extends Component {
 
@@ -48,10 +49,6 @@ class AddEvent extends Component {
         var li = document.createElement("li");
         var inputValue = document.getElementById("myInput").value;
 
-        /* I NEED THE VALUES FROM TIME AND DATE TOO */ 
-        //makeApiCall(inputValue);
-<<<<<<< HEAD
-=======
         //trying to store date and time below:
         //day month and year are separate
         //////////////
@@ -59,13 +56,57 @@ class AddEvent extends Component {
         var inputMonth = document.getElementById("selectMonth").value;
         var inputYear = document.getElementById("selectYear").value;
         var inputTime = document.getElementById("selectTime").value;
+        var exportMonth;
+
+        if (inputMonth === "january") {
+            exportMonth = 1;
+        }
+        else if (inputMonth === "february"){
+            exportMonth = 2;
+        }
+        else if (inputMonth === "march"){
+            exportMonth = 3;
+        }
+        else if (inputMonth === "april"){
+            exportMonth = 4;
+        }
+        else if (inputMonth === "may"){
+            exportMonth = 5;
+        }
+        else if (inputMonth === "june"){
+            exportMonth = 6;
+        }
+        else if (inputMonth === "july"){
+            exportMonth = 7;
+        }
+        else if (inputMonth === "august"){
+            exportMonth = 8;
+        }
+        else if (inputMonth === "september"){
+            exportMonth = 9;
+        }
+        else if (inputMonth === "october"){
+            exportMonth = 10;
+        }
+        else if (inputMonth === "november"){
+            exportMonth = 11;
+        }
+        else{ //December
+            exportMonth = 12;
+        }
+
 
         var varday = document.createTextNode(inputDay);
         var varmonth = document.createTextNode(inputMonth);
         var varyear = document.createTextNode(inputYear);
         var vartime = document.createTextNode(inputTime);
         /////////////
->>>>>>> 3623ccf15b9047517155729a9310b0f2e0ea5849
+
+        var data = [
+            inputValue, inputDay, exportMonth, inputYear, inputTime
+        ];
+    
+        makeApiCall(data);
 
         var t = document.createTextNode(inputValue);
         li.appendChild(t);
