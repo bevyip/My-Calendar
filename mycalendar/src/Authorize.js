@@ -200,7 +200,7 @@ class Authorize extends Component {
             <div id="divifm">
 
                 <div id="authorize-div" styles="display: none">
-                    <span>Authorize access to Google Calendar API</span>
+                    <span className="AuthorizeTitle">Authorize access to Google Calendar API</span>
                     {/*Button for the user to click to initiate auth sequence*/}
                     <div id="AuthButton">
                         <button id="authorize-button" onClick={(e) => this.handleAuthClick(e)}>
