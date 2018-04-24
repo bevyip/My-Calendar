@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './AddEvent.css'
+// import { makeApiCall } from './Calendar';
 
 class AddEvent extends Component {
 
@@ -46,6 +47,10 @@ class AddEvent extends Component {
     newElement() {
         var li = document.createElement("li");
         var inputValue = document.getElementById("myInput").value;
+
+        /* I NEED THE VALUES FROM TIME AND DATE TOO */ 
+        makeApiCall(inputValue);
+
         var t = document.createTextNode(inputValue);
         li.appendChild(t);
         if (inputValue === '') {
@@ -66,7 +71,6 @@ class AddEvent extends Component {
             close[k].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
-
             }
         }
     }
