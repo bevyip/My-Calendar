@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom'
 import Calendar from './Calendar';
 import AddEvent from './AddEvent';
-import './Calendar.css';
+import Authorize from './Authorize';
 import './App.css';
 
 class App extends Component {
@@ -17,14 +17,15 @@ class App extends Component {
                 <NavLink className="Link" to={'/addEvent'}>Add An Event</NavLink>
               </li>
               <li>
-                <NavLink className="CalLink" to={'/'}>View Calendar</NavLink>
+                <NavLink className="CalLink" to={'/viewCalendar'}>View Calendar</NavLink>
               </li>
 
             </ul>
         </div>
 
         <Switch>
-          <Route exact path='/' component={Calendar} />
+          <Route exact path='/' component={Authorize} />
+          <Route path='/viewCalendar' component={Calendar} />
           <Route path='/addEvent' component={AddEvent} />
         </Switch>
       </div>

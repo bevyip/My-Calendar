@@ -11,16 +11,36 @@ h1{
   font-size: 50px;
 }
 
-li {
+.Link {
+  color: pink;
+  padding-right: 30px;
+  display: inline-block;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
   list-style-type: none;
   padding-bottom: 3px;
 }
 
-ul li { 
+.CalLink {
+  /*padding: 0px;*/
+  color: pink;
   display: inline-block;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 20px;
+  list-style-type: none;
+  padding-bottom: 3px;
 }
+
+/*li {
+  list-style-type: none;
+  padding-bottom: 3px;
+}*/
+
+/*ul li { 
+  display: inline-block;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+}*/
 
 .App-header {
   background-color: #222;
@@ -37,16 +57,6 @@ ul li {
 
 .App-intro {
   font-size: large;
-}
-
-.Link {
-  color: pink;
-  padding-right: 30px;
-}
-
-.CalLink {
-  /*padding: 0px;*/
-  color: pink;
 }
 
 @keyframes App-logo-spin {
