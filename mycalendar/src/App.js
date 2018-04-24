@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
+        <div id="AppHeader" className="App-header">
             <h3>Ain't no calendar like</h3>
             <h1>MY CALENDAR</h1>
             <ul>
