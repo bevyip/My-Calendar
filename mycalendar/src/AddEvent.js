@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./AddEvent.css"
+import './AddEvent.css'
 
 class AddEvent extends Component {
 
@@ -25,9 +25,9 @@ class AddEvent extends Component {
 
     hideClose() {
         var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
+        var j;
+        for (j = 0; j < close.length; j++) {
+            close[j].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
             }
@@ -91,62 +91,65 @@ class AddEvent extends Component {
                 {/*</head>*/}
 
                 {/*<body>*/}
-                <div className="row">
-                    <div className="medium-8 column"></div>
 
-                    <h2><center>Select Date:</center></h2>
-                    <form id="date-form">
-                        <center>
-                            <select name="Month" id="selectMonth" >
-                                <option value="month">Month</option>
-                                <option value="january">January</option>
-                                <option value="february">February</option>
-                                <option value="march">March</option>
-                                <option value="april">April</option>
-                                <option value="may">May</option>
-                                <option value="june">June</option>
-                                <option value="july">July</option>
-                                <option value="august">August</option>
-                                <option value="september">September</option>
-                                <option value="october">October</option>
-                                <option value="november">November</option>
-                                <option value="december">December</option>
-                            </select>
-
-
-                            <input id="selectDay" placeholder="Day" type="number" name="day" min="1" max="31" />
-                            <select name="Year" id="selectYear">
-                                <option value="year">Year</option>
-                                <option value="2018">2018</option>
-                            </select>
-                        </center>
-                    </form>
+                    <div className="row">
+                        <div className="medium-8 column"></div>
+                        
+                        <h2><center>Select Date:</center></h2>
+                        <form id="date-form">
+                            <center>
+                                <select name="Month" id="selectMonth" >
+                                    <option value="month">Month</option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                </select>
 
 
+                                <input id="selectDay" placeholder="Day" type="number" name="day" min="1" max="31" />
+                                <select name="Year" id="selectYear">
+                                    <option value="year">Year</option>
+                                    <option value="2018">2018</option>
+                                </select>
+                            </center>
+                        </form>
 
-                    <h2><center>Select Time:</center></h2>
-                    <form id="time-form">
-                        <center>
-                            <input type="time" id="selectTime" name="time" />
-                        </center>
-                    </form>
 
 
-                    <div id="myDIV" className="header">
-                        <h2><center>To Do List:</center></h2>
-                        <center>
-                            <form id="inForm">
-                                <input className="inputBox" type="text" id="myInput" placeholder="Add New Task" />
-                            </form></center>
-                        <button
-                            onClick={(e) => this.newElement(e)}
-                            //onClick= "newElement()"
-                            className="addBtn"
-                            type="submit"
-                        >Add</button>
-                    </div>
+                        <h2><center>Select Time:</center></h2>
+                        <form id="time-form">
+                            <center>
+                                <input type="time" id="selectTime" name="time" />
+                            </center>
+                        </form>
 
-                    <ul id="myUL" className="ul-todo"></ul>
+
+                        <div id="myDIV" className="header">
+                            <h2><center>To Do List:</center></h2>
+                            <center>
+                                <form id="inForm">
+                                    <input className="inputBox" type="text" id="myInput" placeholder="Add New Task" />
+                                </form></center>
+                            <button
+                              onClick={(e) => this.newElement(e)}
+                                //onClick= "newElement()"
+                                className="addBtn"
+                                type="submit"
+                                styles="float: right"
+                            >Add</button>
+                        </div>
+
+                        <ul id="myUL" className="ul-todo"></ul>
+                    
 
                 </div>
 
