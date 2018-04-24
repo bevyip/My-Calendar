@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from "moment";
-import './Calendar.css' 
+import './Authorize.css'
 
 var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -17,32 +17,32 @@ const mapScriptToProps = state => ({
     }
 });
 
-class Calendar extends Component {
+class Authorize extends Component {
     // define a state variable named 'events' as an array
     constructor(props) {
         super(props);
         // this.state = {
         this.events = [];
         this.gapi = null;
-        // this.authorized = false;
+        this.authorized = false;
         this.getEvents = this.getEvents.bind(this);
-        // this.handleAuthResult = this.handleAuthResult.bind(this);
+        this.handleAuthResult = this.handleAuthResult.bind(this);
         this.appendPre = this.appendPre.bind(this);
-        // this.handleAuthClick = this.handleAuthClick.bind(this);
+        this.handleAuthClick = this.handleAuthClick.bind(this);
         // }
     }
 
-    // /**
-    // * Check if current user has authorized this application.
-    // */
-    // checkAuth() {
-    //     this.gapi.auth.authorize(
-    //         {
-    //             'client_id': CLIENT_ID,
-    //             'scope': SCOPES,
-    //             'immediate': true
-    //         }, this.handleAuthResult);
-    // }
+    /**
+    * Check if current user has authorized this application.
+    */
+    checkAuth() {
+        this.gapi.auth.authorize(
+            {
+                'client_id': CLIENT_ID,
+                'scope': SCOPES,
+                'immediate': true
+            }, this.handleAuthResult);
+    }
 
     /**
      * Handle response from authorization server.
@@ -50,22 +50,22 @@ class Calendar extends Component {
      * @param {Object} authResult Authorization result.
      */
     handleAuthResult(authResult) {
-        // var authorizeDiv = document.getElementById('authorize-div');
+        var authorizeDiv = document.getElementById('authorize-div');
         var Maincalendar = document.getElementById('Maincalendar');
         
-        // if (authResult && !authResult.error && this.authorized) {
+        if (authResult && !authResult.error && this.authorized) {
             // Hide auth UI, then load client library.
-            // authorizeDiv.style.display = 'none';
+            authorizeDiv.style.display = 'none';
             Maincalendar.style.display = 'block';
             //this.gapi.load('client', start);
             //this.gapi.client.load('calendar', 'v3', listUpcomingEvents);
             this.getEvents();
-        // } else {
+        } else {
             // Show auth UI, allowing the user to initiate authorization by
             // clicking authorize button.
-            // authorizeDiv.style.display = 'inline';
-            // Maincalendar.style.display = 'none';
-        // }
+            authorizeDiv.style.display = 'inline';
+            Maincalendar.style.display = 'none';
+        }
     }
 
     /**
@@ -73,16 +73,16 @@ class Calendar extends Component {
      *
      * @param {Event} event Button click event.
      */
-    // handleAuthClick(event) {
-    //     // event.preventDefault();
-    //     this.authorized = true;
-    //     this.gapi.auth.authorize({
-    //         client_id: CLIENT_ID,
-    //         scope: SCOPES,
-    //         immediate: false,
-    //     }, this.handleAuthResult);
-    //     return false;
-    // }
+    handleAuthClick(event) {
+        // event.preventDefault();
+        this.authorized = true;
+        this.gapi.auth.authorize({
+            client_id: CLIENT_ID,
+            scope: SCOPES,
+            immediate: false,
+        }, this.handleAuthResult);
+        return false;
+    }
 
     /**
        * Print the summary and start datetime/date of the next ten events in
@@ -199,17 +199,16 @@ class Calendar extends Component {
         return (
             <div id="divifm">
 
-                {/*<div id="authorize-div" styles="display: none">
-                    <span>Authorize access to Google Calendar API</span>*/}
+                <div id="authorize-div" styles="display: none">
+                    <span>Authorize access to Google Calendar API</span>
                     {/*Button for the user to click to initiate auth sequence*/}
-                    {/*<div id="AuthButton">
+                    <div id="AuthButton">
                         <button id="authorize-button" onClick={(e) => this.handleAuthClick(e)}>
                             Authorize
                         </button>
                     </div>
-                </div>*/}
-
-                <div id="Maincalendar">
+                </div>
+                <div id="Maincalendar" styles="display: none">
                     <iframe id="ifmCalendar"
                         src="https://calendar.google.com/calendar/embed?src=fk765birljiou3i7njv358n700%40group.calendar.google.com&ctz=America%2FNew_York"
                         styles="border-width: 0"
@@ -224,4 +223,4 @@ class Calendar extends Component {
     }
 }
 
-export default Calendar;
+export default Authorize;
