@@ -49,7 +49,7 @@ class AddEvent extends Component {
         var inputValue = document.getElementById("myInput").value;
 
         /* I NEED THE VALUES FROM TIME AND DATE TOO */ 
-        makeApiCall(inputValue);
+        //makeApiCall(inputValue);
 
         var t = document.createTextNode(inputValue);
         li.appendChild(t);
