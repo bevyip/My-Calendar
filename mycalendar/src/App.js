@@ -3,6 +3,7 @@ import { Switch, Route, NavLink } from 'react-router-dom'
 import Calendar from './Calendar';
 import AddEvent from './AddEvent';
 import Authorize from './Authorize';
+import BlankComponent from './BlankComponent';
 // import { isAuthorized } from './Authorize';
 import './App.css';
 
@@ -25,11 +26,17 @@ class App extends Component {
 
     let addEventLink = null;
     let viewCalendarLink = null;
+    let authorizeLink = null;
+    let defaultCalendar = null;
     // console.log("ISAUTH: "+isAuthorized());
     console.log(this.state.auth);
     if (this.state.auth) {
       addEventLink = <NavLink className="Link" to={'/addEvent'}>Add An Event</NavLink>;
       viewCalendarLink = <NavLink className="CalLink" to={'/viewCalendar'}>View Calendar</NavLink>
+      defaultCalendar = <Route component={Calendar} />          
+    }
+    else {
+      authorizeLink = <Authorize authCheck={this.authorizationCheck}/>
     }
     // else {
     //   viewCalendarLink = <NavLink className="Link" to={'/addEvent'}>Add An Event</NavLink>;
@@ -51,13 +58,15 @@ class App extends Component {
                 {/*<NavLink className="CalLink" to={'/viewCalendar'}>View Calendar</NavLink>*/}
               </li>
             </ul>
-            <Authorize authCheck={this.authorizationCheck}/>
         </div>
 
+        {authorizeLink}
+
         <Switch>
-          {/*<Route exact path='/' component={Authorize} />*/}
+          {/*<Route exact path='/' component={BlankComponent}/>*/}
           <Route path='/viewCalendar' component={Calendar} />
           <Route path='/addEvent' component={AddEvent} />
+          {defaultCalendar}
         </Switch>
       </div>
     );
