@@ -138,6 +138,7 @@ class AddEvent extends Component {
         if (inputValue === '') {
             alert("Event Field Empty!");
         }
+        else {
         document.getElementById("myUL").appendChild(li);
         document.getElementById("myInput").value = " ";
 
@@ -155,6 +156,7 @@ class AddEvent extends Component {
                 div.style.display = "none";
             }
         }
+    }
     }
 
     render() {
