@@ -94,11 +94,11 @@ newElement() {
     render() {
         return (
             <div>
-                <h1>HELLO DO YOU SEE ME</h1>
+              
                 <div className="AddEvent"></div>
 
 
-                <head>
+                {/*<head>*/}
                     <link href="./style.css" type="text/css" rel="stylesheet" />
 
                     <meta charSet="utf-8" />
@@ -107,16 +107,16 @@ newElement() {
                     <meta name="description" content="" />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                </head>
+                {/*</head>*/}
 
-                <body>
+                {/*<body>*/}
                     <div className="row">
                         <div className="medium-8 column"></div>
-                        <h1><center>My Calendar</center></h1>
+                        
                         <h2><center>Select Date:</center></h2>
                         <form id="date-form">
                             <center>
-                                <select name="Month" id="selectMonth" onChange="validate()">
+                                <select name="Month" id="selectMonth" >
                                     <option value="month">Month</option>
                                     <option value="january">January</option>
                                     <option value="february">February</option>
@@ -165,7 +165,7 @@ newElement() {
                             >Add</button>
                         </div>
 
-                        <ul id="myUL"></ul>
+                        <ul id="myUL" className="ul-todo"></ul>
 
                     </div>
 
@@ -173,7 +173,7 @@ newElement() {
                     <script src="app.js"></script>
                     <script src="https://apis.google.com/js/api.js"></script>
 
-                </body>
+                {/*</body>*/}
             </div>
 
 

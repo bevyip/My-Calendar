@@ -1,31 +1,22 @@
-/*/////////////////*/
+* {
+    box-sizing: border-box;
+}
 
-/*/////////////////*/
-
-/*
-
-body {
-    margin: 0;
-    min-width: 250px;
-}*/
-
-/* MIGHT NEED TO ADD THIS TO A FEW FUNCTIONS: box-sizing: border-box;*/
-
-ul {
+.ul-todo {
     margin: 0;
     padding: 0;
     
 }
 
- ul li {
-     cursor: pointer;
+ .ul-todo {
      position: relative;
+     cursor: pointer;
      padding: 12px 8px 12px 40px;
      list-style-type: none;
      font-size: 18px;
      font-family: Helvetica;
      transition: 0.2s;
-     position: center;
+    
 
      -webkit-user-select: none;
      -moz-user-select: none;
@@ -33,30 +24,30 @@ ul {
      user-select: none;
  }    
 
-  ul li:nth-child(odd) {
+  .ul-todo li:nth-child(odd) {
      background: grey;
  } 
 
- ul li:nth-child(even) {
+ .ul-todo li:nth-child(even) {
      background: darkgrey;
  }
 
- ul li:hover {
+ .ul-todo li:hover {
      background: black;
  }
 
- ul li.checked {
+ .ul-todo li.checked {
      color: pink;
      text-decoration: line-through;
      background: brown;
  }
 
- ul li.checked::before {
+ .ul-todo li.checked::before {
      content: '';
      position: absolute;
      border-style: solid;
      border-width: 0 2px 2px 0;
-     border-color: #fff;
+     border-color:pink;
      top: 10px;
      left: 16px;
      transform: rotate(45deg);
@@ -127,8 +118,7 @@ ul {
  }
  body {
 
- background-color: rgba(73, 8, 8, 0.966);
-     color: black;
+     color:white;
  }
  select>option[value="month"] {
      display:none;
