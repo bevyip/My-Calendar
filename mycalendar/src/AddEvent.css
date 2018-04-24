@@ -65,6 +65,12 @@ select>option[value="year"] {
     text-align: center;
 }
 
+#selectEndTime {
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+    text-align: center;
+}
+
 #myDIV {
     display: inline-block;
     margin-bottom: 0;
