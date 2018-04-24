@@ -167,6 +167,13 @@ class AddEvent extends Component {
         }
        
         document.getElementById("myUL").appendChild(li);
+
+        //clearing fields after appending to list
+        document.getElementById("selectDay").value = '';
+        document.getElementById("selectMonth").value = 'month';
+        document.getElementById("selectYear").value = 'year';
+        document.getElementById("selectTime").value = '';
+        document.getElementById("selectEndTime").value = '';
         document.getElementById("myInput").value = " ";
 
         //close
