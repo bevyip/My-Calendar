@@ -10,6 +10,7 @@ class AddEvent extends Component {
     }
 
     createClose() {
+        //PROBLEM AREA for close not appending for each li item
         var myNodelist = document.getElementsByTagName("LI");
         var i;
         for (i = 0; i < myNodelist.length; i++) {
@@ -150,7 +151,8 @@ class AddEvent extends Component {
                             >Add</button>
                         </div>
 
-                        <ul id="myUL" className="ul-todo"></ul>
+                        <ul id="myUL" className="ul-todo">
+                        </ul>
                     
 
                 </div>

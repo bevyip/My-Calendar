@@ -102,8 +102,6 @@ select>option[value="year"] {
 }
 
 #myUL {
-   
-
      position: relative;
      cursor: pointer;
      padding: 12px 8px 12px 40px;
@@ -130,12 +128,18 @@ select>option[value="year"] {
      background:grey;
  }
 
+ .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 10px 10px 10px;
+}
+
  #myUL li.checked {
      color: pink;
      text-decoration: line-through;
      background: brown;
  }
-
 
  #myUL li.checked::before {
      content: '';
@@ -150,18 +154,9 @@ select>option[value="year"] {
      width: 7px;
  }
 
- .close {
-     
-     position: absolute;
-     right: 0;
-     top: 0;
-     padding: 12px 16px 12px 16px;
- }
+
  
- .close:hover {
-     background-color: #f44336;
-     color: white;
- }
+ 
 
  
 
