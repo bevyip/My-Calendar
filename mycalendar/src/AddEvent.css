@@ -7,6 +7,39 @@
     opacity: 1; /* Firefox */
 }
 
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.h1 {
+    font-size: 360%;
+    font-family: Impact;
+    color: black;
+}
+.h2 {
+
+    font-size: 150%;
+    font-family: Impact;
+    color: black;
+}
+.h3 {
+    font-size: 150%;
+    font-family: Impact;
+    color: black;
+}
+.body {
+    color:white;
+}
+select>option[value="month"] {
+    display:none;
+}
+
+select>option[value="year"] {
+    display:none;
+}
+
 #selectMonth {
     padding: 0.3rem;
     border: 2px solid palevioletred;
@@ -32,6 +65,42 @@
     text-align: center;
 }
 
+#myDIV {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+ .inputBox {
+    /*border:blue;*/
+    /*padding: 10px;*/
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+    float: left;
+   
+    font-size: 16px;
+    width: 75%;
+}
+
+.addBtn {
+    color: #555;
+
+    /*padding: 10px;*/
+    padding: 0.3rem;
+
+    width: 25%;
+    float: left;
+  
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addBtn:hover {
+    background-color: #bbb;
+}
+
 #myUL {
    
 
@@ -50,15 +119,15 @@
  }    
 
 #myUL li:nth-child(odd) {
-     background: grey;
+     background:lightpink;
  } 
 
  #myUL li:nth-child(even) {
-     background: darkgrey;
+     background: lightgrey;
  }
 
  #myUL li:hover {
-     background: pink;
+     background:grey;
  }
 
  #myUL li.checked {
@@ -94,70 +163,6 @@
      color: white;
  }
 
- #myDIV {
-     display: inline-block;
-     margin-bottom: 0;
-     vertical-align: middle;
- }
  
-  .inputBox {
-     /*border:blue;*/
-     /*padding: 10px;*/
-     padding: 0.3rem;
-     border: 2px solid palevioletred;
-     float: left;
-    
-     font-size: 16px;
-     width: 75%;
- }
 
- .addBtn {
-     color: #555;
-     /*padding: 10px;*/
-     padding: 0.3rem;
-     width: 25%;
-     float: left;
-   
-     text-align: center;
-     font-size: 16px;
-     cursor: pointer;
-     transition: 0.3s;
- }
-
- .addBtn:hover {
-     background-color: #bbb;
- }
-
- .header:after {
-     content: "";
-     display: table;
-     clear: both;
- }
-
- .h1 {
-     font-size: 360%;
-     font-family: Impact;
-     color: black;
- }
- .h2 {
-
-     font-size: 150%;
-     font-family: Impact;
-     color: black;
- }
- .h3 {
-     font-size: 150%;
-     font-family: Impact;
-     color: black;
- }
- .body {
-     color:white;
- }
- select>option[value="month"] {
-     display:none;
- }
-
- select>option[value="year"] {
-     display:none;
- }
-
+ 

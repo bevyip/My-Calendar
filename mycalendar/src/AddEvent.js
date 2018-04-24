@@ -8,26 +8,26 @@ class AddEvent extends Component {
 
     }
 
-//JAVASCRIPT CODE GOES HERE
+    //JAVASCRIPT CODE GOES HERE
 
-createClose() {
-    var myNodelist = document.getElementsByTagName("LI");
-    var i;
-    for(i = 0; i < myNodelist.length; i++) {
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        myNodelist[i].appendChild(span);
+    createClose() {
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
 
+        }
     }
-}
 
     hideClose() {
         var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
+        var j;
+        for (j = 0; j < close.length; j++) {
+            close[j].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
             }
@@ -60,56 +60,38 @@ createClose() {
         span.className = "close";
         span.appendChild(txt);
         li.appendChild(span);
-    }
 
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+                var div = this.parentElement;
+                div.style.display = "none";
 
-newElement() {
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("myInput").value;
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if(inputValue === '') {
-        alert("Task Field Empty!");
-    }
-    document.getElementById("myUL").appendChild(li);
-    document.getElementById("myInput").value = " ";
-
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-
-    var close = document.getElementsByClassName("close");
-    var i;
-    for(i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
-            var div = this.parentElement;
-            div.style.display = "none";
-
+            }
         }
     }
-}
 
     render() {
         return (
             <div>
-              
+
                 <div className="AddEvent"></div>
 
 
                 {/*<head>*/}
-                    <link href="./style.css" type="text/css" rel="stylesheet" />
+                <link href="./style.css" type="text/css" rel="stylesheet" />
 
-                    <meta charSet="utf-8" />
-                    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-                    <title>My Calendar</title>
-                    <meta name="description" content="" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charSet="utf-8" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+                <title>My Calendar</title>
+                <meta name="description" content="" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
 
                 {/*</head>*/}
 
                 {/*<body>*/}
+
                     <div className="row">
                         <div className="medium-8 column"></div>
                         
@@ -167,12 +149,13 @@ newElement() {
                         </div>
 
                         <ul id="myUL" className="ul-todo"></ul>
+                    
 
-                    </div>
+                </div>
 
 
-                    <script src="app.js"></script>
-                    <script src="https://apis.google.com/js/api.js"></script>
+                <script src="app.js"></script>
+                <script src="https://apis.google.com/js/api.js"></script>
 
                 {/*</body>*/}
             </div>
