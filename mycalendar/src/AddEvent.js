@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './AddEvent.css'
+// import { makeApiCall } from './Calendar';
 
 class AddEvent extends Component {
 
@@ -7,8 +8,6 @@ class AddEvent extends Component {
         super(props);
 
     }
-
-    //JAVASCRIPT CODE GOES HERE
 
     createClose() {
         var myNodelist = document.getElementsByTagName("LI");
@@ -24,10 +23,10 @@ class AddEvent extends Component {
     }
 
     hideClose() {
-        var close = document.getElementsByClassName("close");
+        var hideclose = document.getElementsByClassName("close");
         var j;
-        for (j = 0; j < close.length; j++) {
-            close[j].onclick = function () {
+        for (j = 0; j < hideclose.length; j++) {
+            hideclose[j].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
             }
@@ -47,6 +46,10 @@ class AddEvent extends Component {
     newElement() {
         var li = document.createElement("li");
         var inputValue = document.getElementById("myInput").value;
+
+        /* I NEED THE VALUES FROM TIME AND DATE TOO */ 
+        makeApiCall(inputValue);
+
         var t = document.createTextNode(inputValue);
         li.appendChild(t);
         if (inputValue === '') {
@@ -62,12 +65,11 @@ class AddEvent extends Component {
         li.appendChild(span);
 
         var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
+        var k;
+        for (k = 0; k < close.length; k++) {
+            close[k].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
-
             }
         }
     }
