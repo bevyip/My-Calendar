@@ -1,0 +1,21 @@
+#MainC {
+  display: none;
+  margin-top: 10px;
+}
+
+#authorize-div {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.AuthorizeTitle{
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+}
+
+#authorize-button {
+    padding: 0.3rem;
+    margin-top: 10px;
+}
+

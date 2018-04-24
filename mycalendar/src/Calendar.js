@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from "moment";
+import './Calendar.css'
 
 var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -16,6 +17,65 @@ const mapScriptToProps = state => ({
     }
 });
 
+// function load the calendar api and make the api call
+export function makeApiCall(input) {
+    var eventResponse = document.getElementById('event-response');
+    // window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
+
+    //data = [inputValue, inputDay, exportMonth, inputYear, inputTime]
+    
+    //splice inputTime to hours and minutes
+    var longTime = input[4];
+    var time = longTime.split(":");
+
+    //set date
+    var startd = new Date();
+    startd.setFullYear(input[3]);
+    startd.setDate(input[1]);
+    startd.setMonth(input[2]-1);
+    startd.setHours(time[0]);
+    startd.setMinutes(time[1]);
+
+    var eventDeets = {
+        'summary': input[0],
+        'start': {'date': startd},
+        // 'end': {'date': endd},
+        "location": "US",
+        "attendees": [
+            {
+                "email": "kulove5perform@gmail.com",
+                "displayName": "Khushali",
+            },
+            {
+                "email": "pk.musikluvr@gmail.com",
+                "displayName": "Pooja",
+            }
+        ],
+    };
+    window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
+        var request = window.gapi.client.calendar.events.insert
+            ({
+                // 'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
+                'calendarId': 'primary',
+                'sendNotifications': 'True',
+                'body': eventDeets,	// pass event details with api call
+            }).execute();
+
+    //     // handle the response from our api call
+    //     request.execute(function (resp) {
+    //         if (resp.status === 'confirmed') {
+    //             // eventResponse.innerHTML = "Event created successfully. View it <a href='" + resp.htmlLink + "'>online here</a>.";
+    //             // eventResponse.className += ' panel-success';
+    //             window.refreshICalendarframe();
+    //         }
+    //         // } else {
+    //         //     document.getElementById('event-response').innerHTML = "There was a problem. Reload page and try again.";
+    //         //     eventResponse.className += ' panel-danger';
+    //         // }
+    //     });
+    });
+}
+
 class Calendar extends Component {
     // define a state variable named 'events' as an array
     constructor(props) {
@@ -24,22 +84,10 @@ class Calendar extends Component {
         this.events = [];
         this.gapi = null;
         this.getEvents = this.getEvents.bind(this);
-        this.handleAuthResult = this.handleAuthResult.bind(this);
         this.appendPre = this.appendPre.bind(this);
-        this.handleAuthClick = this.handleAuthClick.bind(this);
+        this.listUpcomingEvents = this.listUpcomingEvents.bind(this);
+        this.refreshICalendarframe = this.refreshICalendarframe.bind(this);
         // }
-    }
-
-    /**
-    * Check if current user has authorized this application.
-    */
-    checkAuth() {
-        this.gapi.auth.authorize(
-            {
-                'client_id': CLIENT_ID,
-                'scope': SCOPES,
-                'immediate': true
-            }, this.handleAuthResult);
     }
 
     /**
@@ -48,37 +96,12 @@ class Calendar extends Component {
      * @param {Object} authResult Authorization result.
      */
     handleAuthResult(authResult) {
-        var authorizeDiv = document.getElementById('authorize-div');
         var Maincalendar = document.getElementById('Maincalendar');
-        console.log(Maincalendar);
-        if (authResult && !authResult.error) {
-            // Hide auth UI, then load client library.
-            authorizeDiv.style.display = 'none';
-            Maincalendar.style.display = 'block';
-            //this.gapi.load('client', start);
-            //this.gapi.client.load('calendar', 'v3', listUpcomingEvents);
-            this.getEvents();
-        } else {
-            // Show auth UI, allowing the user to initiate authorization by
-            // clicking authorize button.
-            authorizeDiv.style.display = 'inline';
-            Maincalendar.style.display = 'none';
-        }
-    }
 
-    /**
-     * Initiate auth flow in response to user clicking authorize button.
-     *
-     * @param {Event} event Button click event.
-     */
-    handleAuthClick(event) {
-        // event.preventDefault();
-        this.gapi.auth.authorize({
-            client_id: CLIENT_ID,
-            scope: SCOPES,
-            immediate: false,
-        }, this.handleAuthResult);
-        return false;
+        Maincalendar.style.display = 'block';
+        //this.gapi.load('client', start);
+        //this.gapi.client.load('calendar', 'v3', this.listUpcomingEvents);
+        this.getEvents();
     }
 
     /**
@@ -135,6 +158,40 @@ class Calendar extends Component {
             this.getEvents();
         }
     }
+
+    refreshICalendarframe() {
+        var iframe = document.getElementById('divifm')
+        iframe.innerHTML = iframe.innerHTML;
+    }
+
+    // // function load the calendar api and make the api call
+    // makeApiCall({ input }) {
+    //     console.log(input);
+    //     var eventResponse = document.getElementById('event-response');
+
+    //     this.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
+
+    //         // start assigning values to resource on top here *******************************
+
+    //         var request = this.gapi.client.calendar.events.insert
+    //             ({
+    //                 'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
+    //                 "resource": this.resource	// pass event details with api call
+    //             });
+
+    //         // handle the response from our api call
+    //         request.execute(function (resp) {
+    //             if (resp.status == 'confirmed') {
+    //                 eventResponse.innerHTML = "Event created successfully. View it <a href='" + resp.htmlLink + "'>online here</a>.";
+    //                 eventResponse.className += ' panel-success';
+    //                 this.refreshICalendarframe();
+    //             } else {
+    //                 document.getElementById('event-response').innerHTML = "There was a problem. Reload page and try again.";
+    //                 eventResponse.className += ' panel-danger';
+    //             }
+    //         });
+    //     });
+    // }
 
     // make call to Google Calendar API and update the state with response
     getEvents() {
@@ -196,16 +253,17 @@ class Calendar extends Component {
         return (
             <div id="divifm">
 
-                <div id="authorize-div" styles="display: none">
-                    <span>Authorize access to Google Calendar API</span>
-                    {/*Button for the user to click to initiate auth sequence*/}
-                    <div id="AuthButton">
+                {/*<div id="authorize-div" styles="display: none">
+                    <span>Authorize access to Google Calendar API</span>*/}
+                {/*Button for the user to click to initiate auth sequence*/}
+                {/*<div id="AuthButton">
                         <button id="authorize-button" onClick={(e) => this.handleAuthClick(e)}>
                             Authorize
                         </button>
                     </div>
-                </div>
-                <div id="Maincalendar">
+                </div>*/}
+
+                <div id="Maincalendar" styles="display: inline">
                     <iframe id="ifmCalendar"
                         src="https://calendar.google.com/calendar/embed?src=fk765birljiou3i7njv358n700%40group.calendar.google.com&ctz=America%2FNew_York"
                         styles="border-width: 0"

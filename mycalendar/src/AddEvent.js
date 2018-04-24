@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import "./AddEvent.css"
+import './AddEvent.css'
+// import { makeApiCall } from './Calendar';
+import { makeApiCall } from './Calendar';
 
 class AddEvent extends Component {
 
@@ -8,26 +10,25 @@ class AddEvent extends Component {
 
     }
 
-//JAVASCRIPT CODE GOES HERE
+    createClose() {
+        //PROBLEM AREA for close not appending for each li item
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
 
-createClose() {
-    var myNodelist = document.getElementsByTagName("LI");
-    var i;
-    for(i = 0; i < myNodelist.length; i++) {
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        myNodelist[i].appendChild(span);
-
+        }
     }
-}
 
     hideClose() {
-        var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
+        var hideclose = document.getElementsByClassName("close");
+        var j;
+        for (j = 0; j < hideclose.length; j++) {
+            hideclose[j].onclick = function () {
                 var div = this.parentElement;
                 div.style.display = "none";
             }
@@ -47,10 +48,95 @@ createClose() {
     newElement() {
         var li = document.createElement("li");
         var inputValue = document.getElementById("myInput").value;
+
+        //trying to store date and time below:
+        //day month and year are separate
+        //////////////
+        var inputDay = document.getElementById("selectDay").value;
+        var inputMonth = document.getElementById("selectMonth").value;
+        var inputYear = document.getElementById("selectYear").value;
+        var inputTime = document.getElementById("selectTime").value;
+        var exportMonth;
+
+        if (inputMonth === "january") {
+            exportMonth = 1;
+        }
+        else if (inputMonth === "february"){
+            exportMonth = 2;
+        }
+        else if (inputMonth === "march"){
+            exportMonth = 3;
+        }
+        else if (inputMonth === "april"){
+            exportMonth = 4;
+        }
+        else if (inputMonth === "may"){
+            exportMonth = 5;
+        }
+        else if (inputMonth === "june"){
+            exportMonth = 6;
+        }
+        else if (inputMonth === "july"){
+            exportMonth = 7;
+        }
+        else if (inputMonth === "august"){
+            exportMonth = 8;
+        }
+        else if (inputMonth === "september"){
+            exportMonth = 9;
+        }
+        else if (inputMonth === "october"){
+            exportMonth = 10;
+        }
+        else if (inputMonth === "november"){
+            exportMonth = 11;
+        }
+        else{ //December
+            exportMonth = 12;
+        }
+
+
+        var varday = document.createTextNode(inputDay);
+        var varmonth = document.createTextNode(inputMonth);
+        var varyear = document.createTextNode(inputYear);
+        var vartime = document.createTextNode(inputTime);
+        /////////////
+
+        var data = [
+            inputValue, inputDay, exportMonth, inputYear, inputTime
+        ];
+    
+        makeApiCall(data);
+
         var t = document.createTextNode(inputValue);
         li.appendChild(t);
+
+        ////////////
+        li.appendChild (document.createTextNode("  --  "));
+        li.appendChild(varmonth);
+        li.appendChild (document.createTextNode("  --  "));
+        li.appendChild(varday);
+        li.appendChild (document.createTextNode("  --  "));
+        li.appendChild(varyear);
+        li.appendChild (document.createTextNode("  --  "));
+        li.appendChild(vartime);
+
+        if (inputDay === '') {
+            alert("Day Field Empty!");
+        }
+        if (inputMonth === '') {
+            alert("Month Field Empty!");
+        }
+        if (inputYear === '') {
+            alert("Year Field Empty!");
+        }
+        if (inputTime === '') {
+            alert("Time Field Empty!");
+        }
+        ////////////
+
         if (inputValue === '') {
-            alert("Task Field Empty!");
+            alert("Event Field Empty!");
         }
         document.getElementById("myUL").appendChild(li);
         document.getElementById("myInput").value = " ";
@@ -60,63 +146,44 @@ createClose() {
         span.className = "close";
         span.appendChild(txt);
         li.appendChild(span);
-    }
 
-
-newElement() {
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("myInput").value;
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if(inputValue === '') {
-        alert("Task Field Empty!");
-    }
-    document.getElementById("myUL").appendChild(li);
-    document.getElementById("myInput").value = " ";
-
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-
-    var close = document.getElementsByClassName("close");
-    var i;
-    for(i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
-            var div = this.parentElement;
-            div.style.display = "none";
-
+        var close = document.getElementsByClassName("close");
+        var k;
+        for (k = 0; k < close.length; k++) {
+            close[k].onclick = function () {
+                var div = this.parentElement;
+                div.style.display = "none";
+            }
         }
     }
-}
 
     render() {
         return (
             <div>
-                <h1>HELLO DO YOU SEE ME</h1>
+
                 <div className="AddEvent"></div>
 
 
-                <head>
-                    <link href="./style.css" type="text/css" rel="stylesheet" />
+                {/*<head>*/}
+                <link href="./style.css" type="text/css" rel="stylesheet" />
 
-                    <meta charSet="utf-8" />
-                    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-                    <title>My Calendar</title>
-                    <meta name="description" content="" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charSet="utf-8" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+                <title>My Calendar</title>
+                <meta name="description" content="" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                </head>
+                {/*</head>*/}
 
-                <body>
+                {/*<body>*/}
+
                     <div className="row">
                         <div className="medium-8 column"></div>
-                        <h1><center>My Calendar</center></h1>
+                        
                         <h2><center>Select Date:</center></h2>
                         <form id="date-form">
                             <center>
-                                <select name="Month" id="selectMonth" onChange="validate()">
+                                <select name="Month" id="selectMonth" >
                                     <option value="month">Month</option>
                                     <option value="january">January</option>
                                     <option value="february">February</option>
@@ -152,28 +219,31 @@ newElement() {
 
 
                         <div id="myDIV" className="header">
-                            <h2><center>To Do List:</center></h2>
+                            <h2><center>Events:</center></h2>
                             <center>
                                 <form id="inForm">
-                                    <input className="inputBox" type="text" id="myInput" placeholder="Add New Task" />
+                                    <input className="inputBox" type="text" id="myInput" placeholder="Add New Event" />
                                 </form></center>
                             <button
                               onClick={(e) => this.newElement(e)}
                                 //onClick= "newElement()"
                                 className="addBtn"
                                 type="submit"
+                                styles="float: right"
                             >Add</button>
                         </div>
 
-                        <ul id="myUL"></ul>
+                        <ul id="myUL" className="ul-todo">
+                        </ul>
+                    
 
-                    </div>
+                </div>
 
 
-                    <script src="app.js"></script>
-                    <script src="https://apis.google.com/js/api.js"></script>
+                <script src="app.js"></script>
+                <script src="https://apis.google.com/js/api.js"></script>
 
-                </body>
+                {/*</body>*/}
             </div>
 
 

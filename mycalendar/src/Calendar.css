@@ -4,6 +4,11 @@ body {
 	background: none;
 }
 
+#Maincalendar {
+  display: inline-block;
+  margin-top: 10px;
+}
+
 .full {
  -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -11,21 +16,9 @@ body {
   background-size: cover;
 }
 
-#Maincalendar {
-  display: none;
-}
-
 .panel-danger {
   color: red;
 }
 .panel-success {
   color:green;
-}
-
-#authorize-div {
-  padding: 5px;
-}
-
-#AuthButton {
-  padding: 5px;
 }

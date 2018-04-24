@@ -1,62 +1,152 @@
-/*/////////////////*/
-
-/*/////////////////*/
-
-/*
-
-body {
-    margin: 0;
-    min-width: 250px;
-}*/
-
-/* MIGHT NEED TO ADD THIS TO A FEW FUNCTIONS: box-sizing: border-box;*/
-
-ul {
-    margin: 0;
-    padding: 0;
-    
+* {
+    box-sizing: border-box;
 }
 
- ul li {
-     cursor: pointer;
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.h1 {
+    font-size: 360%;
+    font-family: Impact;
+    color: black;
+}
+.h2 {
+
+    font-size: 150%;
+    font-family: Impact;
+    color: black;
+}
+.h3 {
+    font-size: 150%;
+    font-family: Impact;
+    color: black;
+}
+.body {
+    color:white;
+}
+select>option[value="month"] {
+    display:none;
+}
+
+select>option[value="year"] {
+    display:none;
+}
+
+#selectMonth {
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#selectDay {
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#selectYear {
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+}
+
+#selectTime {
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+    text-align: center;
+}
+
+#myDIV {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+ .inputBox {
+    /*border:blue;*/
+    /*padding: 10px;*/
+    padding: 0.3rem;
+    border: 2px solid palevioletred;
+    float: left;
+   
+    font-size: 16px;
+    width: 75%;
+}
+
+.addBtn {
+    color: #555;
+
+    /*padding: 10px;*/
+    padding: 0.3rem;
+
+    width: 25%;
+    float: left;
+  
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addBtn:hover {
+    background-color: #bbb;
+}
+
+#myUL {
      position: relative;
+     cursor: pointer;
      padding: 12px 8px 12px 40px;
      list-style-type: none;
      font-size: 18px;
      font-family: Helvetica;
      transition: 0.2s;
-     position: center;
-
+    
      -webkit-user-select: none;
      -moz-user-select: none;
      -ms-user-select: none;
      user-select: none;
  }    
 
-  ul li:nth-child(odd) {
-     background: grey;
+#myUL li:nth-child(odd) {
+     background:lightpink;
  } 
 
- ul li:nth-child(even) {
-     background: darkgrey;
+ #myUL li:nth-child(even) {
+     background: lightgrey;
  }
 
- ul li:hover {
-     background: black;
+ #myUL li:hover {
+     background:grey;
  }
 
- ul li.checked {
+ .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 10px 10px 10px;
+}
+
+ #myUL li.checked {
      color: pink;
      text-decoration: line-through;
      background: brown;
  }
 
- ul li.checked::before {
+ #myUL li.checked::before {
      content: '';
      position: absolute;
      border-style: solid;
      border-width: 0 2px 2px 0;
-     border-color: #fff;
+     border-color:pink;
      top: 10px;
      left: 16px;
      transform: rotate(45deg);
@@ -64,77 +154,10 @@ ul {
      width: 7px;
  }
 
- .close {
-     
-     position: absolute;
-     right: 0;
-     top: 0;
-     padding: 12px 16px 12px 16px;
- }
+
  
- .close:hover {
-     background-color: #f44336;
-     color: white;
- }
  
- .inputBox {
-     border: none;
-     padding: 10px;
-     float: left;
-    
-     font-size: 16px;
-     width: 75%;
- }
 
- .addBtn {
-     color: #555;
-     padding: 10px;
-     width: 25%;
-     float: left;
-   
-     text-align: center;
-     font-size: 16px;
-     cursor: pointer;
-     transition: 0.3s;
+ 
 
- }
-
- .addBtn:hover {
-     background-color: #bbb;
- }
-
- .header:after {
-     content: "";
-     display: table;
-     clear: both;
- }
-
- h1 {
-     font-size: 360%;
-     font-family: Impact;
-     color: black;
- }
- h2 {
-
-     font-size: 150%;
-     font-family: Impact;
-     color: black;
- }
- h3 {
-     font-size: 150%;
-     font-family: Impact;
-     color: black;
- }
- body {
-
- background-color: rgba(73, 8, 8, 0.966);
-     color: black;
- }
- select>option[value="month"] {
-     display:none;
- }
-
- select>option[value="year"] {
-     display:none;
- }
-
+ 
