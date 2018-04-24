@@ -17,6 +17,15 @@ const mapScriptToProps = state => ({
     }
 });
 
+// export function isAuthorized() {
+//         console.log("I'm in isAuth function: "+window.authorized);
+//         if (window.authorized){
+//             return true;
+//         }else{
+//             return false;
+//         }
+// }
+
 class Authorize extends Component {
     // define a state variable named 'events' as an array
     constructor(props) {
@@ -30,6 +39,15 @@ class Authorize extends Component {
         this.appendPre = this.appendPre.bind(this);
         this.handleAuthClick = this.handleAuthClick.bind(this);
         // }
+    }
+
+    /*
+    * Checks if Authorized button has been clicked
+    */
+
+    isAuthorized(){
+        console.log(this.auth);
+        this.props.isAuthorized(this.auth);
     }
 
     /**
@@ -52,7 +70,7 @@ class Authorize extends Component {
     handleAuthResult(authResult) {
         var authorizeDiv = document.getElementById('authorize-div');
         var MainC = document.getElementById('MainC');
-        console.log(this.authorized);
+        // console.log(this.authorized);
         if (authResult && !authResult.error && this.authorized) {
             // Hide auth UI, then load client library.
             authorizeDiv.style.display = 'none';
@@ -76,6 +94,13 @@ class Authorize extends Component {
     handleAuthClick(event) {
         // event.preventDefault();
         this.authorized = true;
+
+        //ONLY LOAD THE LINKS IF AUTH IS TRUE *************
+
+        console.log(this.authorized);
+
+        this.props.authCheck(true);
+
         this.gapi.auth.authorize({
             client_id: CLIENT_ID,
             scope: SCOPES,
