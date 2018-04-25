@@ -17,15 +17,6 @@ const mapScriptToProps = state => ({
     }
 });
 
-// export function isAuthorized() {
-//         console.log("I'm in isAuth function: "+window.authorized);
-//         if (window.authorized){
-//             return true;
-//         }else{
-//             return false;
-//         }
-// }
-
 class Authorize extends Component {
     // define a state variable named 'events' as an array
     constructor(props) {
