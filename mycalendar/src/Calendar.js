@@ -164,35 +164,6 @@ class Calendar extends Component {
         iframe.innerHTML = iframe.innerHTML;
     }
 
-    // // function load the calendar api and make the api call
-    // makeApiCall({ input }) {
-    //     console.log(input);
-    //     var eventResponse = document.getElementById('event-response');
-
-    //     this.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
-
-    //         // start assigning values to resource on top here *******************************
-
-    //         var request = this.gapi.client.calendar.events.insert
-    //             ({
-    //                 'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
-    //                 "resource": this.resource	// pass event details with api call
-    //             });
-
-    //         // handle the response from our api call
-    //         request.execute(function (resp) {
-    //             if (resp.status == 'confirmed') {
-    //                 eventResponse.innerHTML = "Event created successfully. View it <a href='" + resp.htmlLink + "'>online here</a>.";
-    //                 eventResponse.className += ' panel-success';
-    //                 this.refreshICalendarframe();
-    //             } else {
-    //                 document.getElementById('event-response').innerHTML = "There was a problem. Reload page and try again.";
-    //                 eventResponse.className += ' panel-danger';
-    //             }
-    //         });
-    //     });
-    // }
-
     // make call to Google Calendar API and update the state with response
     getEvents() {
         this.gapi = window.gapi;
