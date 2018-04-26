@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import moment from "moment";
 import './Authorize.css'
 
 var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 var SCOPES = "https://www.googleapis.com/auth/calendar";
 var CALENDAR_ID = 'fk765birljiou3i7njv358n700@group.calendar.google.com';
-var API_KEY = 'AIzaSyCdC4elPM1IHb1Ct_sZw7D2XIC5tb8tmJo';
+var API_KEY = 'AIzaSyA3QgzJ93McJ_lcFbN5XWGssWosdpLfVUA';
 
 // For making gapi object passed as props to our component
 const mapScriptToProps = state => ({
@@ -37,22 +36,10 @@ class Authorize extends Component {
     */
 
     isAuthorized(){
-        console.log(this.auth);
+        //console.log(this.auth);
         this.props.isAuthorized(this.auth);
     }
-
-    /**
-    * Check if current user has authorized this application.
-    */
-    checkAuth() {
-        this.gapi.auth.authorize(
-            {
-                'client_id': CLIENT_ID,
-                'scope': SCOPES,
-                'immediate': true
-            }, this.handleAuthResult);
-    }
-
+    
     /**
      * Handle response from authorization server.
      *
@@ -86,10 +73,6 @@ class Authorize extends Component {
     handleAuthClick(event) {
         // event.preventDefault();
         this.authorized = true;
-
-        //ONLY LOAD THE LINKS IF AUTH IS TRUE *************
-
-        // console.log(this.authorized);
 
         this.gapi.auth.authorize({
             client_id: CLIENT_ID,
