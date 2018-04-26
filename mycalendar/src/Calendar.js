@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import moment from "moment";
 import './Calendar.css';
-//import file, {client, tools} from 'oauth2client';
 
 var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 var SCOPES = "https://www.googleapis.com/auth/calendar";
 var CALENDAR_ID = 'fk765birljiou3i7njv358n700@group.calendar.google.com';
-var API_KEY = 'AIzaSyCdC4elPM1IHb1Ct_sZw7D2XIC5tb8tmJo';
+var API_KEY = 'AIzaSyA3QgzJ93McJ_lcFbN5XWGssWosdpLfVUA';
 
 // For making gapi object passed as props to our component
 const mapScriptToProps = state => ({
@@ -65,10 +63,9 @@ export function makeApiCall(input) {
         ],
     };
     window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
-        var request = window.gapi.client.calendar.events.insert
-            ({
-                // 'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
-                'calendarId': 'primary',
+        var request = window.gapi.client.calendar.events.insert({
+                'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
+                //'calendarId': 'primary',
                 'sendNotifications': 'True',
                 'resource': eventDeets,	// pass event details with api call
             });
