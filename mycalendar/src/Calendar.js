@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from "moment";
 import './Calendar.css';
-import file, {client, tools} from 'oauth2client';
+//import file, {client, tools} from 'oauth2client';
 
 var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -63,7 +63,7 @@ export function makeApiCall(input) {
         ],
     };
 
-    var store = file.Storage('storage.json');
+   // var store = file.Storage('storage.json');
     
 
     window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
