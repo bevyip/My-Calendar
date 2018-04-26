@@ -121,15 +121,45 @@ class AddEvent extends Component {
         li.appendChild(varendtime);
 
         //getting rid of exponential characters in Day
-        var inputBox = document.getElementById("selectDay");
+        var dayBox = document.getElementById("selectDay");
         var invalidChars = [
         "-",
         "+",
         "e",
         ];
-        inputBox.addEventListener("input", function() {
+        dayBox.addEventListener("input", function() {
             this.value = this.value.replace(/[e\+\-]/gi, "");
           });
+
+        //trying to fix enter key
+          var inform = document.getElementById("inForm");
+          var isSubmitted = false;
+          function checkEnter(e) {
+              if(e && e.keyCode == 13) {
+                  inform.submit();
+                  isSubmitted = true;
+              }
+          }
+          function onSubmit() {
+              if(isSubmitted){
+                  isSubmitted = false;
+                  return false;
+              }
+          }
+          
+
+          //trying to fix enter pt 2
+          /*
+          var enterInput = document.getElementById("myInput");
+          enterInput.addEventListener("keyup", function(event) {
+              event.preventDefault();
+              if(event.keyCode === 13) {
+                  document.getElementById("myBtn").click();
+              }
+          });
+          */
+          
+
 
         //boundaries for day
         if(inputDay > 31) {
@@ -162,6 +192,11 @@ class AddEvent extends Component {
 
         if (inputValue === '') {
             alert("Event Field Empty!");
+            return;
+        }
+        
+        if(inputValue === 13) {
+            document.getElementById("myUL").appendChild(li);
             return;
         }
        
@@ -269,16 +304,20 @@ class AddEvent extends Component {
                         <div id="myDIV" className="header">
                             <h2><center>Events:</center></h2>
                             <center>
-                                <form id="inForm">
+                                <form id="inForm" onsubmit="return newElement()">
                                     <input className="inputBox" type="text" id="myInput" placeholder="Add New Event" />
-                                </form></center>
-                            <button
+                                    <input id="myBtn" type="submit" value="Submit" />
+                                </form>
+                            </center>
+                            {/*<button
                               onClick={(e) => this.newElement(e)}
                                 //onClick= "newElement()"
                                 className="addBtn"
-                                type="submit"
+                                type="button"
                                 styles="float: right"
-                            >Add</button>
+                                id="myBtn2"
+                            >Add</button> */}
+                            
                         </div>
 
                         <div id="listDIV" className="listEvents">
