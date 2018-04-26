@@ -4,6 +4,11 @@ body {
 	background: none;
 }
 
+#authorize-div {
+    text-align: center;
+    margin-top: 10%;
+}
+
 #Maincalendar {
   display: inline-block;
   margin-top: 10px;
