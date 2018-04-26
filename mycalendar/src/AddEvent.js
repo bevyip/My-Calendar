@@ -149,8 +149,8 @@ class AddEvent extends Component {
           
 
           //trying to fix enter pt 2
-          /*
-          var enterInput = document.getElementById("myInput");
+          
+         /* var enterInput = document.getElementById("myInput");
           enterInput.addEventListener("keyup", function(event) {
               event.preventDefault();
               if(event.keyCode === 13) {
@@ -304,19 +304,24 @@ class AddEvent extends Component {
                         <div id="myDIV" className="header">
                             <h2><center>Events:</center></h2>
                             <center>
-                                <form id="inForm" onsubmit="return newElement()">
+                                {/*<form id="inForm" onsubmit="return newElement()">
+                                    <input className="inputBox" type="text" id="myInput" placeholder="Add New Event" />*/}
+                                    {/*<input id="myBtn" type="submit" value="Submit" />*/}
+                                
+                                {/*</form>*/}
+                                <form id="inForm" onsubmit={(e) => this.newElement(e)}>
                                     <input className="inputBox" type="text" id="myInput" placeholder="Add New Event" />
                                     <input id="myBtn" type="submit" value="Submit" />
                                 </form>
                             </center>
-                            {/*<button
+                            <button
                               onClick={(e) => this.newElement(e)}
                                 //onClick= "newElement()"
                                 className="addBtn"
                                 type="button"
                                 styles="float: right"
                                 id="myBtn2"
-                            >Add</button> */}
+                            >Add</button> 
                             
                         </div>
 
