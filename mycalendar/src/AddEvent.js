@@ -92,14 +92,6 @@ class AddEvent extends Component {
         else{ //December
             exportMonth = 12;
         }
-
-        //Splitting up time
-        var startTimeSplit = inputTime.split(":");
-        var endTimeSplit = inputEndTime.split(":");
-        var startHours = startTimeSplit[0];
-        var startMinutes = startTimeSplit[1];
-        var endHours = endTimeSplit[0];
-        var endMinutes = endTimeSplit[1];
         var AMPM = "";
 
         if (endHours < startHours) {
