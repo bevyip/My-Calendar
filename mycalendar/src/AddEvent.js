@@ -87,6 +87,19 @@ class AddEvent extends Component {
         else{ //December
             exportMonth = 12;
         }
+        var AMPM = "";
+      
+        if (endHours < startHours) {
+            alert("End Time ends before Start Time!");
+            document.getElementById("selectEndTime").value = '';
+            return;
+        }
+        if(startHours >= 12 || endHours >= 12) {
+            AMPM = " PM";
+        }
+        if(startHours < 12 || endHours < 12){
+            AMPM = " AM";
+        }
 
         var varday = document.createTextNode(inputDay);
         var varmonth = document.createTextNode(inputMonth);
@@ -112,8 +125,10 @@ class AddEvent extends Component {
         li.appendChild(varyear);
         li.appendChild (document.createTextNode("    from    "));
         li.appendChild(vartime);
+        li.appendChild(document.createTextNode(AMPM));
         li.appendChild (document.createTextNode("    to    "));
         li.appendChild(varendtime);
+        li.appendChild(document.createTextNode(AMPM));
 
         //getting rid of exponential characters in Day
         var dayBox = document.getElementById("selectDay");
