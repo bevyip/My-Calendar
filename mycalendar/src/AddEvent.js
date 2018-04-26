@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './AddEvent.css'
-// import { makeApiCall } from './Calendar';
 import { makeApiCall } from './Calendar';
 
 class AddEvent extends Component {
@@ -93,9 +92,6 @@ class AddEvent extends Component {
         else{ //December
             exportMonth = 12;
         }
-
-
-        
 
         var varday = document.createTextNode(inputDay);
         var varmonth = document.createTextNode(inputMonth);
