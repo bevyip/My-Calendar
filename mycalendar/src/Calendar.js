@@ -48,6 +48,9 @@ export function makeApiCall(input) {
     endd.setMinutes(endTime[1]);
     console.log("endd: " + endd.toISOString());
 
+    // var newstart = new DateTime(startd);
+    // console.log("new start:" + newstart);
+
     var eventDeets = {
         'summary': input[0],
         'start': {'date': startd.toISOString()},
