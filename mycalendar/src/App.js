@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   authorizationCheck(isAuth) {
-    console.log(isAuth);
+    //console.log(isAuth);
     this.setState({auth: isAuth});
   }
 
