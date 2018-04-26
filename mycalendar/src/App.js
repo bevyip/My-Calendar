@@ -27,7 +27,7 @@ class App extends Component {
     let authorizeLink = null;
     let defaultCalendar = null;
     // console.log("ISAUTH: "+isAuthorized());
-    console.log(this.state.auth);
+    // console.log(this.state.auth);
     if (this.state.auth) {
       addEventLink = <NavLink className="Link" to={'/addEvent'}>Add An Event</NavLink>;
       viewCalendarLink = <NavLink className="CalLink" to={'/viewCalendar'}>View Calendar</NavLink>

@@ -64,6 +64,7 @@ class Authorize extends Component {
         // console.log(this.authorized);
         if (authResult && !authResult.error && this.authorized) {
             // Hide auth UI, then load client library.
+            this.props.authCheck(true);
             authorizeDiv.style.display = 'none';
             MainC.style.display = 'block';
             //this.gapi.load('client', start);
@@ -88,9 +89,7 @@ class Authorize extends Component {
 
         //ONLY LOAD THE LINKS IF AUTH IS TRUE *************
 
-        console.log(this.authorized);
-
-        this.props.authCheck(true);
+        // console.log(this.authorized);
 
         this.gapi.auth.authorize({
             client_id: CLIENT_ID,
