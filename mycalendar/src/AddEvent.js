@@ -88,6 +88,11 @@ class AddEvent extends Component {
             exportMonth = 12;
         }
         var AMPM = "";
+
+        var splitStartTime = inputTime.split(":");
+        var splitEndTime = inputEndTime.split(":");
+        var startHours = splitStartTime[0];
+        var endHours = splitEndTime[0];
       
         if (endHours < startHours) {
             alert("End Time ends before Start Time!");
