@@ -3,12 +3,7 @@ import './AddEvent.css'
 import { makeApiCall } from './Calendar';
 
 class AddEvent extends Component {
-
-    constructor(props) {
-        super(props);
-
-    }
-
+    
     createClose() {
         //PROBLEM AREA??? for close not appending for each li item
         var myNodelist = document.getElementsByTagName("LI");
@@ -93,16 +88,6 @@ class AddEvent extends Component {
             exportMonth = 12;
         }
 
-        //Splitting up time
-        var startTimeSplit = inputTime.split(":");
-        var endTimeSplit = inputEndTime.split(":");
-        var startHours = startTimeSplit[0];
-        var startMinutes = startTimeSplit[1];
-        var endHours = endTimeSplit[0];
-        var endMinutes = endTimeSplit[1];
-
-
-
         var varday = document.createTextNode(inputDay);
         var varmonth = document.createTextNode(inputMonth);
         var varyear = document.createTextNode(inputYear);
@@ -132,11 +117,11 @@ class AddEvent extends Component {
 
         //getting rid of exponential characters in Day
         var dayBox = document.getElementById("selectDay");
-        var invalidChars = [
-        "-",
-        "+",
-        "e",
-        ];
+        // var invalidChars = [
+        // "-",
+        // "+",
+        // "e",
+        // ];
         dayBox.addEventListener("input", function() {
             this.value = this.value.replace(/[e\+\-]/gi, "");
           });
