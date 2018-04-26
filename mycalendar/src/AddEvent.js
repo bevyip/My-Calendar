@@ -87,7 +87,13 @@ class AddEvent extends Component {
         else{ //December
             exportMonth = 12;
         }
-        var AMPM = "";
+        var sAMPM = "";
+        var eAMPM = "";
+
+        var splitStartTime = inputTime.split(":");
+        var splitEndTime = inputEndTime.split(":");
+        var startHours = splitStartTime[0];
+        var endHours = splitEndTime[0];
 
         var splitStartTime = inputTime.split(":");
         var splitEndTime = inputEndTime.split(":");
@@ -99,12 +105,19 @@ class AddEvent extends Component {
             document.getElementById("selectEndTime").value = '';
             return;
         }
-        if(startHours >= 12 || endHours >= 12) {
-            AMPM = " PM";
+        if(startHours >= 12){
+            sAMPM = " PM";
         }
-        if(startHours < 12 || endHours < 12){
-            AMPM = " AM";
+        if(endHours >= 12){
+            eAMPM = " PM";
+        } 
+        if(startHours < 12){
+            sAMPM = " AM";
         }
+        if(endHours < 12){
+            eAMPM = " AM";
+        }
+        
 
         var varday = document.createTextNode(inputDay);
         var varmonth = document.createTextNode(inputMonth);
@@ -130,10 +143,10 @@ class AddEvent extends Component {
         li.appendChild(varyear);
         li.appendChild (document.createTextNode("    from    "));
         li.appendChild(vartime);
-        li.appendChild(document.createTextNode(AMPM));
+        li.appendChild(document.createTextNode(sAMPM));
         li.appendChild (document.createTextNode("    to    "));
         li.appendChild(varendtime);
-        li.appendChild(document.createTextNode(AMPM));
+        li.appendChild(document.createTextNode(eAMPM));
 
         //getting rid of exponential characters in Day
         var dayBox = document.getElementById("selectDay");
@@ -193,7 +206,7 @@ class AddEvent extends Component {
         document.getElementById("selectYear").value = 'year';
         document.getElementById("selectTime").value = '';
         document.getElementById("selectEndTime").value = '';
-        document.getElementById("myInput").value = " ";
+        document.getElementById("myInput").value = '';
 
         //close
         var span2 = document.createElement("SPAN");
