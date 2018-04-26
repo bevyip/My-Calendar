@@ -38,6 +38,7 @@ export function makeApiCall(input) {
     startd.setMonth(input[2]-1);
     startd.setHours(startTime[0]);
     startd.setMinutes(startTime[1]);
+    console.log("startd: " + startd.toISOString());
 
     var endd = new Date();
     endd.setFullYear(input[3]);
@@ -45,11 +46,12 @@ export function makeApiCall(input) {
     endd.setMonth(input[2]-1);
     endd.setHours(endTime[0]);
     endd.setMinutes(endTime[1]);
+    console.log("endd: " + endd.toISOString());
 
     var eventDeets = {
         'summary': input[0],
-        'start': {'date': startd},
-        'end': {'date': endd},
+        'start': {'date': startd.toISOString()},
+        'end': {'date': endd.toISOString()},
         "location": "US",
         "attendees": [
             {
@@ -62,18 +64,19 @@ export function makeApiCall(input) {
             }
         ],
     };
-
-   // var store = file.Storage('storage.json');
-    
-
     window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
         var request = window.gapi.client.calendar.events.insert
             ({
                 // 'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
                 'calendarId': 'primary',
                 'sendNotifications': 'True',
-                'body': eventDeets,	// pass event details with api call
-            }).execute();
+                'resource': eventDeets,	// pass event details with api call
+            });
+
+        // handle the response from our api call
+        request.execute(function(resp){
+            console.log(resp);
+        });
 
     //     // handle the response from our api call
     //     request.execute(function (resp) {
