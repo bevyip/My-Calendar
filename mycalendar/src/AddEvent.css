@@ -126,9 +126,10 @@ select>option[value="year"] {
 }
 
 #myUL {
+    display: inline-block;
     margin: 0;
-    padding: 0;
-     position: relative;
+    /*padding: 0;*/
+     /*position: relative;*/
      cursor: pointer;
      padding: 12px 16px 12px 16px;
      list-style-type: none;
@@ -156,9 +157,9 @@ select>option[value="year"] {
 
 .close {
     /*display: block;*/
-    position: absolute;
+    /*position: absolute;*/
     right: 0;
-    /*top: 0;*/
+    top: 0;
     /*close does not show up with top: 0 and/or bottom: 0 */
     /*top right botom left*/
     padding: 12px 16px 12px 16px;
