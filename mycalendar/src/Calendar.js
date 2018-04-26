@@ -22,24 +22,33 @@ export function makeApiCall(input) {
     var eventResponse = document.getElementById('event-response');
     // window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
 
-    //data = [inputValue, inputDay, exportMonth, inputYear, inputTime]
+    //data = [inputValue, inputDay, exportMonth, inputYear, inputTime, inputEndTime]
     
     //splice inputTime to hours and minutes
     var longTime = input[4];
-    var time = longTime.split(":");
+    var startTime = longTime.split(":");
+    var longEndTime = input[5];
+    var endTime = longEndTime.split(":");
 
     //set date
     var startd = new Date();
     startd.setFullYear(input[3]);
     startd.setDate(input[1]);
     startd.setMonth(input[2]-1);
-    startd.setHours(time[0]);
-    startd.setMinutes(time[1]);
+    startd.setHours(startTime[0]);
+    startd.setMinutes(startTime[1]);
+
+    var endd = new Date();
+    endd.setFullYear(input[3]);
+    endd.setDate(input[1]);
+    endd.setMonth(input[2]-1);
+    endd.setHours(endTime[0]);
+    endd.setMinutes(endTime[1]);
 
     var eventDeets = {
         'summary': input[0],
         'start': {'date': startd},
-        // 'end': {'date': endd},
+        'end': {'date': endd},
         "location": "US",
         "attendees": [
             {
