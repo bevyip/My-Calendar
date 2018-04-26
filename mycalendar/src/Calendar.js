@@ -62,18 +62,19 @@ export function makeApiCall(input) {
             }
         ],
     };
-
-   // var store = file.Storage('storage.json');
-    
-
     window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
         var request = window.gapi.client.calendar.events.insert
             ({
                 // 'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
                 'calendarId': 'primary',
                 'sendNotifications': 'True',
-                'body': eventDeets,	// pass event details with api call
-            }).execute();
+                'resource': eventDeets,	// pass event details with api call
+            });
+            
+        // handle the response from our api call
+        request.execute(function(resp){
+            console.log(resp);
+        });
 
     //     // handle the response from our api call
     //     request.execute(function (resp) {
