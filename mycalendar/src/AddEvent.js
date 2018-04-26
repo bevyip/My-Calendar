@@ -93,6 +93,16 @@ class AddEvent extends Component {
             exportMonth = 12;
         }
 
+        //Splitting up time
+        var startTimeSplit = inputTime.split(":");
+        var endTimeSplit = inputEndTime.split(":");
+        var startHours = startTimeSplit[0];
+        var startMinutes = startTimeSplit[1];
+        var endHours = endTimeSplit[0];
+        var endMinutes = endTimeSplit[1];
+
+
+
         var varday = document.createTextNode(inputDay);
         var varmonth = document.createTextNode(inputMonth);
         var varyear = document.createTextNode(inputYear);
@@ -130,36 +140,6 @@ class AddEvent extends Component {
         dayBox.addEventListener("input", function() {
             this.value = this.value.replace(/[e\+\-]/gi, "");
           });
-
-        //trying to fix enter key
-          var inform = document.getElementById("inForm");
-          var isSubmitted = false;
-          function checkEnter(e) {
-              if(e && e.keyCode == 13) {
-                  inform.submit();
-                  isSubmitted = true;
-              }
-          }
-          function onSubmit() {
-              if(isSubmitted){
-                  isSubmitted = false;
-                  return false;
-              }
-          }
-          
-
-          //trying to fix enter pt 2
-          
-         /* var enterInput = document.getElementById("myInput");
-          enterInput.addEventListener("keyup", function(event) {
-              event.preventDefault();
-              if(event.keyCode === 13) {
-                  document.getElementById("myBtn").click();
-              }
-          });
-          */
-          
-
 
         //boundaries for day
         if(inputDay > 31) {
@@ -309,9 +289,8 @@ class AddEvent extends Component {
                                     {/*<input id="myBtn" type="submit" value="Submit" />*/}
                                 
                                 {/*</form>*/}
-                                <form id="inForm" onsubmit={(e) => this.newElement(e)}>
+                                <form id="inForm">
                                     <input className="inputBox" type="text" id="myInput" placeholder="Add New Event" />
-                                    <input id="myBtn" type="submit" value="Submit" />
                                 </form>
                             </center>
                             <button
