@@ -154,16 +154,14 @@ select>option[value="year"] {
 #myUL li:hover {
      background:grey;
  }
-
+/*
 .close {
-    /*display: block;*/
-    /*position: absolute;*/
+    
     right: 0;
     top: 0;
-    /*close does not show up with top: 0 and/or bottom: 0 */
-    /*top right botom left*/
+   
     padding: 12px 16px 12px 16px;
-}
+}*/
 
 #myUL li.checked {
      color: pink;

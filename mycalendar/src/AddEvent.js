@@ -4,30 +4,30 @@ import { makeApiCall } from './Calendar';
 
 class AddEvent extends Component {
     
-    createClose() {
-        //PROBLEM AREA??? for close not appending for each li item
-        var myNodelist = document.getElementsByTagName("LI");
-        var i;
-        for (i = 0; i < myNodelist.length; i++) {
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            myNodelist[i].appendChild(span);
+    // createClose() {
+    //     //PROBLEM AREA??? for close not appending for each li item
+    //     var myNodelist = document.getElementsByTagName("LI");
+    //     var i;
+    //     for (i = 0; i < myNodelist.length; i++) {
+    //         var span = document.createElement("SPAN");
+    //         var txt = document.createTextNode("\u00D7");
+    //         span.className = "close";
+    //         span.appendChild(txt);
+    //         myNodelist[i].appendChild(span);
 
-        }
-    }
+    //     }
+    // }
 
-    hideClose() {
-        var hideclose = document.getElementsByClassName("close");
-        var j;
-        for (j = 0; j < hideclose.length; j++) {
-            hideclose[j].onclick = function () {
-                var div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
-    }
+    // hideClose() {
+    //     var hideclose = document.getElementsByClassName("close");
+    //     var j;
+    //     for (j = 0; j < hideclose.length; j++) {
+    //         hideclose[j].onclick = function () {
+    //             var div = this.parentElement;
+    //             div.style.display = "none";
+    //         }
+    //     }
+    // }
 
     createCheck() {
         var list = document.querySelector('ul');
@@ -204,22 +204,23 @@ class AddEvent extends Component {
         document.getElementById("myInput").value = '';
 
         //close
-        var span2 = document.createElement("SPAN");
+        /*var span2 = document.createElement("SPAN");
         var txt2 = document.createTextNode("\u00D7");
         span2.className = "close";
         span2.appendChild(txt2);
-        li.appendChild(span2); //Appending to list here???
+        li.appendChild(span2); //Appending to list here???*/
 
         
 
-        var close2 = document.getElementsByClassName("close");
-        var k;
-        for (k = 0; k < close2.length; k++) {
-            close2[k].onclick = function () {
-                var div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
+        // var close2 = document.getElementsByClassName("close");
+        // var k;
+        // for (k = 0; k < close2.length; k++) {
+        //     close2[k].onclick = function () {
+        //         var div = this.parentElement;
+        //         div.style.display = "none";
+        //     }
+        // }
+
     
     }
 
