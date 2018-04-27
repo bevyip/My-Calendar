@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Calendar.css';
 
 //var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
-var CLIENT_ID = '997562130279-lugpm3kl09blkdsicmefuuqpimqumode.apps.googleusercontent.com';
+//var CLIENT_ID = '997562130279-lugpm3kl09blkdsicmefuuqpimqumode.apps.googleusercontent.com';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-var SCOPES = "https://www.googleapis.com/auth/calendar";
+//var SCOPES = "https://www.googleapis.com/auth/calendar";
 var CALENDAR_ID = 'fk765birljiou3i7njv358n700@group.calendar.google.com';
 var API_KEY = 'AIzaSyAmSbS7UTAJB4Ul_eGaBokAVUz2sgDJ5Bs';
 
@@ -19,7 +19,7 @@ const mapScriptToProps = state => ({
 
 // function load the calendar api and make the api call
 export function makeApiCall(input) {
-    var eventResponse = document.getElementById('event-response');
+   // var eventResponse = document.getElementById('event-response');
     //data = [inputValue, inputDay, exportMonth, inputYear, inputTime, inputEndTime]
     
     //splice inputTime to hours and minutes
@@ -184,7 +184,7 @@ class Calendar extends Component {
     }
 
     render() {
-        const { events } = this.events;
+       // const { events } = this.events;
         // console.log(events);
         let eventsList = this.events.map(function (event) {
             return (
@@ -212,7 +212,7 @@ class Calendar extends Component {
                 </div>*/}
 
                 <div id="Maincalendar" styles="display: inline">
-                    <iframe id="ifmCalendar"
+                    <iframe title = "hello" id="ifmCalendar"
                         src="https://calendar.google.com/calendar/embed?src=fk765birljiou3i7njv358n700%40group.calendar.google.com&ctz=America%2FNew_York"
                         styles="border-width: 0"
                         width="1000"
