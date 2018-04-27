@@ -35,7 +35,7 @@ export function makeApiCall(input) {
     startd.setMonth(input[2]-1);
     startd.setHours(startTime[0]);
     startd.setMinutes(startTime[1]);
-    console.log("startd: " + startd.toISOString());
+    // console.log("startd: " + startd.toISOString());
 
     var endd = new Date();
     endd.setFullYear(input[3]);
@@ -43,37 +43,28 @@ export function makeApiCall(input) {
     endd.setMonth(input[2]-1);
     endd.setHours(endTime[0]);
     endd.setMinutes(endTime[1]);
-    console.log("endd: " + endd.toISOString());
+    // console.log("endd: " + endd.toISOString());
 
     var eventDeets = {
-        // "summary": "hello boy" /*input[0]*/,
-        // "start": {"date": startd.toISOString()},
-        // "end": {'date': endd.toISOString()},
-        // "location": "US",
-        // "attendees": [
-        //     {
-        //         "email": "kulove5perform@gmail.com",
-        //         "displayName": "Khushali",
-        //     },
-        //     {
-        //         "email": "pk.musikluvr@gmail.com",
-        //         "displayName": "Pooja",
-        //     }
-        // ],
-        'summary': 'Google I/O 2015',
-        'location': '800 Howard St., San Francisco, CA 94103',
-        'description': 'A chance to hear more about Google\'s developer products.',
+        'summary': input[0],
+        'description': 'This is a new event added hallelujah',
         'start': {
-            'dateTime': '2015-05-28T09:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
+            'dateTime': startd,
+            'timeZone': 'America/New_York'
         },
         'end': {
-            'dateTime': '2015-05-28T17:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
+            'dateTime': endd,
+            'timeZone': 'America/New_York'
         },
         'attendees': [
-            { 'email': 'bubbles@example.com' },
-            { 'email': 'rainbows@example.com' }
+            {
+                "email": "kulove5perform@gmail.com",
+                "displayName": "Khushali",
+            },
+            {
+                "email": "pk.musikluvr@gmail.com",
+                "displayName": "Pooja",
+            }
         ],
         'reminders': {
             'useDefault': false,
@@ -85,6 +76,7 @@ export function makeApiCall(input) {
     };
 
     var c = new Calendar();
+    //console.log(c);
     c.listUpcomingEvents(eventDeets);
 }
 
@@ -96,7 +88,7 @@ class Calendar extends Component {
         this.events = [];
         this.gapi = null;
         this.getEvents = this.getEvents.bind(this);
-        this.appendPre = this.appendPre.bind(this);
+        //this.appendPre = this.appendPre.bind(this);
         this.listUpcomingEvents = this.listUpcomingEvents.bind(this);
         this.refreshICalendarframe = this.refreshICalendarframe.bind(this);
         // }
@@ -120,22 +112,26 @@ class Calendar extends Component {
         // handle the response from our api call
         request.execute(function(resp) {
             console.log(resp);
+            window.onload = function() {
+                var iframe = document.getElementById('divifm')
+                iframe.innerHTML = iframe.innerHTML;
+            };
             //appendPre('Event created: ' + resp.htmlLink);
         });
     });
     }
 
-    /**
-       * Append a pre element to the body containing the given message
-       * as its text node.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-    appendPre(message) {
-        var pre = document.getElementById('output');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-    }
+    // /**
+    //    * Append a pre element to the body containing the given message
+    //    * as its text node.
+    //    *
+    //    * @param {string} message Text to be placed in pre element.
+    //    */
+    // appendPre(message) {
+    //     var pre = document.getElementById('output');
+    //     var textContent = document.createTextNode(message + '\n');
+    //     pre.appendChild(textContent);
+    // }
 
     /**
      * Handle response from authorization server.
@@ -144,8 +140,12 @@ class Calendar extends Component {
      */
     handleAuthResult(authResult) {
         var Maincalendar = document.getElementById('Maincalendar');
-
         Maincalendar.style.display = 'block';
+        this.gapi.auth.authorize({
+            client_id: CLIENT_ID,
+            scope: SCOPES,
+            immediate: false,
+        });
         //this.gapi.load('client', start);
         //this.gapi.client.load('calendar', 'v3', this.listUpcomingEvents);
         this.getEvents();
@@ -165,7 +165,7 @@ class Calendar extends Component {
     }
 
     refreshICalendarframe() {
-        var iframe = document.getElementById('divifm')
+        var iframe = document.getElementById('Maincalendar')
         iframe.innerHTML = iframe.innerHTML;
     }
 
