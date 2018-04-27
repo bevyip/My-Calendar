@@ -151,8 +151,8 @@ class Calendar extends Component {
     listUpcomingEvents(eventDeets) {
         window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
         var request = window.gapi.client.calendar.events.insert({
-                //'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
-                'calendarId': 'primary',
+                'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
+                //'calendarId': 'primary',
                 'sendNotifications': 'false',
                 'supportAttachments': 'true',
                 'resource': eventDeets,	// pass event details with api call
