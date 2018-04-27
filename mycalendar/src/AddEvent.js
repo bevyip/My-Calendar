@@ -125,7 +125,8 @@ class AddEvent extends Component {
             inputValue, inputDay, exportMonth, inputYear, inputTime, inputEndTime
         ];
 
-         
+        console.log("calling makeapiCall")
+    
         //calling function in Calendar.js
         makeApiCall(data);
 
