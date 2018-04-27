@@ -35,7 +35,7 @@ export function makeApiCall(input) {
     startd.setMonth(input[2]-1);
     startd.setHours(startTime[0]);
     startd.setMinutes(startTime[1]);
-    console.log("startd: " + startd.toISOString());
+   // console.log("startd: " + startd.toISOString());
 
     var endd = new Date();
     endd.setFullYear(input[3]);
@@ -43,7 +43,7 @@ export function makeApiCall(input) {
     endd.setMonth(input[2]-1);
     endd.setHours(endTime[0]);
     endd.setMinutes(endTime[1]);
-    console.log("endd: " + endd.toISOString());
+    //console.log("endd: " + endd.toISOString());
 
     var eventDeets = {
         "summary": input[0],
@@ -102,8 +102,8 @@ class Calendar extends Component {
     listUpcomingEvents(eventDeets) {
         window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
         var request = window.gapi.client.calendar.events.insert({
-                //'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
-                'calendarId': 'primary',
+                'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
+                //'calendarId': 'primary',
                 //'sendNotifications': 'false',
                 //'supportAttachments': 'true',
                 'resource': eventDeets,	// pass event details with api call

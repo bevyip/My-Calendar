@@ -76,7 +76,7 @@ class Authorize extends Component {
     handleAuthClick(event) {
         // event.preventDefault();
         this.authorized = true;
-        console.log(this);
+       // console.log(this);
         this.gapi.auth.authorize({
             client_id: CLIENT_ID,
             scope: SCOPES,
