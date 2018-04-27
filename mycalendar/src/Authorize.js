@@ -49,7 +49,8 @@ class Authorize extends Component {
     handleAuthResult(authResult) {
         var authorizeDiv = document.getElementById('authorize-div');
         var MainC = document.getElementById('MainC');
-        //console.log(authResult);
+        
+        //console.log("AUTH RESULT: "+authResult);
         if (authResult && !authResult.error && this.authorized) {
             // Hide auth UI, then load client library.
             //console.log("this.props.authCheck: "+this.props.authCheck);
@@ -75,7 +76,7 @@ class Authorize extends Component {
     handleAuthClick(event) {
         // event.preventDefault();
         this.authorized = true;
-
+        console.log(this);
         this.gapi.auth.authorize({
             client_id: CLIENT_ID,
             scope: SCOPES,
@@ -83,46 +84,6 @@ class Authorize extends Component {
         }, this.handleAuthResult);
         return false;
     }
-
-    // /**
-    //    * Print the summary and start datetime/date of the next ten events in
-    //    * the authorized user's calendar. If no events are found an
-    //    * appropriate message is printed.
-    //    */
-    // listUpcomingEvents() {
-    //     var request = this.gapi.client.calendar.events.list({
-    //         'calendarId': 'primary', /* Can be 'primary' or a given calendarid */
-    //         'timeMin': (new Date()).toISOString(),
-    //         'showDeleted': false,
-    //         'singleEvents': true,
-    //         'maxResults': 10,
-    //         'orderBy': 'startTime'
-    //     });
-
-    //     request.execute(function (resp) {
-    //         var events = resp.items;
-    //         this.appendPre('Upcoming events:');
-    //         // Once the request promise is resolved we will get the list of events as response. 
-    //         // Then we will call setState method of React to store data to the app state.
-    //         this.setState({ events }, () => {
-    //             console.log(this.state.events);
-    //         })
-
-    //         if (this.state.events.length > 0) {
-    //             for (var i = 0; i < this.state.events.length; i++) {
-    //                 var event = this.state.events[i];
-    //                 var when = event.start.dateTime;
-    //                 if (!when) {
-    //                     when = event.start.date;
-    //                 }
-    //                 this.appendPre(event.summary + ' (' + when + ')')
-    //             }
-    //         } else {
-    //             this.appendPre('No upcoming events found.');
-    //         }
-    //     });
-    // }
-
 
     componentDidMount = () => {
         // Check is gapi loaded?
