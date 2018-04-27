@@ -9,6 +9,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   </script>
   <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyD7MQzfceO_e9uahTl9xm20tgIO3HSjyzM",
+      authDomain: "my-calendar-202400.firebaseapp.com",
+      databaseURL: "https://my-calendar-202400.firebaseio.com",
+      projectId: "my-calendar-202400",
+      storageBucket: "my-calendar-202400.appspot.com",
+      messagingSenderId: "997562130279"
+    };
+    firebase.initializeApp(config);
+  </script>
+
   <script src="App.js" type="text/javascript"></script>
   <script src="Calendar.js" type="text/javascript"></script>
   <script src="Authorize.js" type="text/javascript"></script>
