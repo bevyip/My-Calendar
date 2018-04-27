@@ -49,9 +49,10 @@ class Authorize extends Component {
     handleAuthResult(authResult) {
         var authorizeDiv = document.getElementById('authorize-div');
         var MainC = document.getElementById('MainC');
-        // console.log(this.authorized);
+        //console.log(authResult);
         if (authResult && !authResult.error && this.authorized) {
             // Hide auth UI, then load client library.
+            //console.log("this.props.authCheck: "+this.props.authCheck);
             this.props.authCheck(true);
             authorizeDiv.style.display = 'none';
             MainC.style.display = 'block';
@@ -150,16 +151,6 @@ class Authorize extends Component {
                     'path': `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events`,
                 })
             })
-            // }).then((response) => {
-            //     // Once the request promise is resolved we will get the list of events as response. 
-            //     // Then we will call setState method of React to store data to the app state.
-            //     let events = response.result.items
-            //     that.setState({ events }, () => {
-            //         console.log(that.state.events);
-            //     })
-            // }, function (reason) {
-            //     console.log(reason);
-            // });
         }
         // The function gapi.load is used to load gapi libraries.
         // First one for libraries and second one is a callback function
