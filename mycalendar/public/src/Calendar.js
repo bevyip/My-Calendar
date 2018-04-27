@@ -175,16 +175,6 @@ class Calendar extends Component {
                     'path': `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events`,
                 })
             })
-            // }).then((response) => {
-            //     // Once the request promise is resolved we will get the list of events as response. 
-            //     // Then we will call setState method of React to store data to the app state.
-            //     let events = response.result.items
-            //     that.setState({ events }, () => {
-            //         console.log(that.state.events);
-            //     })
-            // }, function (reason) {
-            //     console.log(reason);
-            // });
         }
         // The function gapi.load is used to load gapi libraries.
         // First one for libraries and second one is a callback function
