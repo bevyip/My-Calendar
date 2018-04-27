@@ -27,7 +27,7 @@ class Authorize extends Component {
         this.authorized = false;
         this.loadAuth = this.loadAuth.bind(this);
         this.handleAuthResult = this.handleAuthResult.bind(this);
-        this.appendPre = this.appendPre.bind(this);
+        //this.appendPre = this.appendPre.bind(this);
         this.handleAuthClick = this.handleAuthClick.bind(this);
         // }
     }
@@ -76,7 +76,7 @@ class Authorize extends Component {
     handleAuthClick(event) {
         // event.preventDefault();
         this.authorized = true;
-        console.log(this);
+        //console.log(this);
         this.gapi.auth.authorize({
             client_id: CLIENT_ID,
             scope: SCOPES,
@@ -120,17 +120,17 @@ class Authorize extends Component {
         that.gapi.load('client', start)
     }
 
-    /**
-       * Append a pre element to the body containing the given message
-       * as its text node.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-    appendPre(message) {
-        var pre = document.getElementById('output');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-    }
+    // /**
+    //    * Append a pre element to the body containing the given message
+    //    * as its text node.
+    //    *
+    //    * @param {string} message Text to be placed in pre element.
+    //    */
+    // appendPre(message) {
+    //     var pre = document.getElementById('output');
+    //     var textContent = document.createTextNode(message + '\n');
+    //     pre.appendChild(textContent);
+    // }
 
     render() {
         const { events } = this.events;
