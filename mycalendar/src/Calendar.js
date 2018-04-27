@@ -96,7 +96,7 @@ class Calendar extends Component {
         this.events = [];
         this.gapi = null;
         this.getEvents = this.getEvents.bind(this);
-        this.appendPre = this.appendPre.bind(this);
+        //this.appendPre = this.appendPre.bind(this);
         this.listUpcomingEvents = this.listUpcomingEvents.bind(this);
         this.refreshICalendarframe = this.refreshICalendarframe.bind(this);
         // }
@@ -131,11 +131,13 @@ class Calendar extends Component {
        *
        * @param {string} message Text to be placed in pre element.
        */
+      /*
     appendPre(message) {
         var pre = document.getElementById('output');
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
     }
+    */
 
     /**
      * Handle response from authorization server.

@@ -27,7 +27,7 @@ class Authorize extends Component {
         this.authorized = false;
         this.loadAuth = this.loadAuth.bind(this);
         this.handleAuthResult = this.handleAuthResult.bind(this);
-        this.appendPre = this.appendPre.bind(this);
+        //this.appendPre = this.appendPre.bind(this);
         this.handleAuthClick = this.handleAuthClick.bind(this);
         // }
     }
@@ -126,11 +126,13 @@ class Authorize extends Component {
        *
        * @param {string} message Text to be placed in pre element.
        */
+      /*
     appendPre(message) {
         var pre = document.getElementById('output');
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
     }
+    */
 
     render() {
         const { events } = this.events;
