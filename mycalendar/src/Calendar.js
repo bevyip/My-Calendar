@@ -45,20 +45,42 @@ export function makeApiCall(input) {
     console.log("endd: " + endd.toISOString());
 
     var eventDeets = {
-        "summary": "hello boy" /*input[0]*/,
-        "start": {"date": startd.toISOString()},
-        "end": {'date': endd.toISOString()},
-        "location": "US",
-        "attendees": [
-            {
-                "email": "kulove5perform@gmail.com",
-                "displayName": "Khushali",
-            },
-            {
-                "email": "pk.musikluvr@gmail.com",
-                "displayName": "Pooja",
-            }
+        // "summary": "hello boy" /*input[0]*/,
+        // "start": {"date": startd.toISOString()},
+        // "end": {'date': endd.toISOString()},
+        // "location": "US",
+        // "attendees": [
+        //     {
+        //         "email": "kulove5perform@gmail.com",
+        //         "displayName": "Khushali",
+        //     },
+        //     {
+        //         "email": "pk.musikluvr@gmail.com",
+        //         "displayName": "Pooja",
+        //     }
+        // ],
+        'summary': 'Google I/O 2015',
+        'location': '800 Howard St., San Francisco, CA 94103',
+        'description': 'A chance to hear more about Google\'s developer products.',
+        'start': {
+            'dateTime': '2015-05-28T09:00:00-07:00',
+            'timeZone': 'America/Los_Angeles'
+        },
+        'end': {
+            'dateTime': '2015-05-28T17:00:00-07:00',
+            'timeZone': 'America/Los_Angeles'
+        },
+        'attendees': [
+            { 'email': 'lpage@example.com' },
+            { 'email': 'sbrin@example.com' }
         ],
+        'reminders': {
+            'useDefault': false,
+            'overrides': [
+                { 'method': 'email', 'minutes': 24 * 60 },
+                { 'method': 'popup', 'minutes': 10 }
+            ]
+        }
     };
 
     var c = new Calendar();
@@ -130,7 +152,8 @@ class Calendar extends Component {
         var request = window.gapi.client.calendar.events.insert({
                 //'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
                 'calendarId': 'primary',
-                'sendNotifications': 'True',
+                'sendNotifications': 'false',
+                'supportAttachments': 'true',
                 'resource': eventDeets,	// pass event details with api call
             });
 
