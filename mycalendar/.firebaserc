@@ -1,1 +1,6 @@
-{}
+{
+  "projects": {
+    "default": "my-calendar-202400",
+    "staging": "my-calendar-202400"
+  }
+}
