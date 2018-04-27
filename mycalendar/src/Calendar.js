@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './Calendar.css';
 
-var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
+//var CLIENT_ID = '594687122878-ke25lnr7a5qfivethln16ua4l21rl484.apps.googleusercontent.com';
+var CLIENT_ID = '997562130279-lugpm3kl09blkdsicmefuuqpimqumode.apps.googleusercontent.com';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 var SCOPES = "https://www.googleapis.com/auth/calendar";
 var CALENDAR_ID = 'fk765birljiou3i7njv358n700@group.calendar.google.com';
-var API_KEY = 'AIzaSyA3QgzJ93McJ_lcFbN5XWGssWosdpLfVUA';
+var API_KEY = 'AIzaSyAmSbS7UTAJB4Ul_eGaBokAVUz2sgDJ5Bs';
 
 // For making gapi object passed as props to our component
 const mapScriptToProps = state => ({
