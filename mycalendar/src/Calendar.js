@@ -72,8 +72,8 @@ export function makeApiCall(input) {
             'timeZone': 'America/Los_Angeles'
         },
         'attendees': [
-            { 'email': 'lpage@example.com' },
-            { 'email': 'sbrin@example.com' }
+            { 'email': 'bubbles@example.com' },
+            { 'email': 'rainbows@example.com' }
         ],
         'reminders': {
             'useDefault': false,
@@ -86,21 +86,6 @@ export function makeApiCall(input) {
 
     var c = new Calendar();
     c.listUpcomingEvents(eventDeets);
-
-    // window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
-    //     var request = window.gapi.client.calendar.events.insert({
-    //             'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
-    //             //'calendarId': 'primary',
-    //             'sendNotifications': 'True',
-    //             'resource': eventDeets,	// pass event details with api call
-    //         });
-
-    //     // handle the response from our api call
-    //     request.execute(function(resp){
-    //         //console.log(resp);
-    //         appendPre('Event created: ' + resp.htmlLink);
-    //     });
-    // });
 }
 
 class Calendar extends Component {
@@ -115,6 +100,29 @@ class Calendar extends Component {
         this.listUpcomingEvents = this.listUpcomingEvents.bind(this);
         this.refreshICalendarframe = this.refreshICalendarframe.bind(this);
         // }
+    }
+
+     /**
+       * Print the summary and start datetime/date of the next ten events in
+       * the authorized user's calendar. If no events are found an
+       * appropriate message is printed.
+       */
+    listUpcomingEvents(eventDeets) {
+        window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
+        var request = window.gapi.client.calendar.events.insert({
+                'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
+                //'calendarId': 'primary',
+                //'sendNotifications': 'false',
+                //'supportAttachments': 'true',
+                'resource': eventDeets,	// pass event details with api call
+            });
+
+        // handle the response from our api call
+        request.execute(function(resp) {
+            console.log(resp);
+            //appendPre('Event created: ' + resp.htmlLink);
+        });
+    });
     }
 
     /**
@@ -142,62 +150,6 @@ class Calendar extends Component {
         //this.gapi.client.load('calendar', 'v3', this.listUpcomingEvents);
         this.getEvents();
     }
-
-    /**
-       * Print the summary and start datetime/date of the next ten events in
-       * the authorized user's calendar. If no events are found an
-       * appropriate message is printed.
-       */
-    listUpcomingEvents(eventDeets) {
-        window.gapi.client.load('calendar', 'v3', function () {	// load the calendar api (version 3)
-        var request = window.gapi.client.calendar.events.insert({
-                'calendarId': 'fk765birljiou3i7njv358n700@group.calendar.google.com', // calendar ID
-                //'calendarId': 'primary',
-                'sendNotifications': 'false',
-                'supportAttachments': 'true',
-                'resource': eventDeets,	// pass event details with api call
-            });
-
-        // handle the response from our api call
-        request.execute(function(resp) {
-            console.log(resp.description);
-            //appendPre('Event created: ' + resp.htmlLink);
-        });
-    });
-        // var request = this.gapi.client.calendar.events.list({
-        //     'calendarId': 'primary', /* Can be 'primary' or a given calendarid */
-        //     'timeMin': (new Date()).toISOString(),
-        //     'showDeleted': false,
-        //     'singleEvents': true,
-        //     'maxResults': 10,
-        //     'orderBy': 'startTime'
-        // });
-
-        // request.execute(function (resp) {
-        //     var events = resp.items;
-        //     this.appendPre('Event created: ' + resp.htmlLink);
-        //     this.appendPre('Upcoming events:');
-        //     // Once the request promise is resolved we will get the list of events as response. 
-        //     // Then we will call setState method of React to store data to the app state.
-        //     this.setState({ events }, () => {
-        //         console.log(this.state.events);
-        //     })
-
-        //     if (this.state.events.length > 0) {
-        //         for (var i = 0; i < this.state.events.length; i++) {
-        //             var event = this.state.events[i];
-        //             var when = event.start.dateTime;
-        //             if (!when) {
-        //                 when = event.start.date;
-        //             }
-        //             this.appendPre(event.summary + ' (' + when + ')')
-        //         }
-        //     } else {
-        //         this.appendPre('No upcoming events found.');
-        //     }
-        // });
-    }
-
 
     componentDidMount = () => {
         // Check: is gapi loaded?
